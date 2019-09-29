@@ -1,4 +1,4 @@
-# Hodina 1 - instalace prostředí
+# Lekce 1
 
 Instalace se bohužel na Mac, Linuxu i Windows drobně liší.
 Text je proto poněkud delší a komplikovanější, ale relevantní je pro vás vždy jen cca třetina - dle vašeho operačního systému.
