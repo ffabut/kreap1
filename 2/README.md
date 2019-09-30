@@ -108,6 +108,23 @@ Všimněme si:
 - čísla nepíšeme v uvozovkách
 - jaký je rozdíl mezi: `print("15")` a `print(15)`?
 
+## Komentáře a čitelnost
+
+Kód neslouží pouze k udávání povelů počítači, je často také čten lidmi - jinými programátorkami a programátory i námi samotnými někdy v budoucnu.
+Je proto dobré udržovat kód čitelný a jasný.
+Mezi dobré praktiky slouží smyslyplné pojmenovávání proměnných a funkcí (co jsou proměnné a funkce si vysvětlíme později).
+
+Mezi klíčové nástroje pro čitelnost ale patří především komentáře.
+Jde o úseky v kódu, které neovlivňují chod programu - jsou Pythonem či jinými jazyky ignorovány - a slouží pouze ke čtení lidmi.
+Komentáře v Pythonu začínají křížkem/hashtagem #, vše na řádku za tímto znakem je ignorováno:
+
+```python
+# Tady pozdravíme svět
+print("Ahoj, světe!")
+
+print("Ahoj, FaVU!") # A tady zdravíme FaVU
+```
+
 ## Proměnné (ukládání dat)
 
 Občas je vhodné si výsledek či hodnotu "uložit".
@@ -158,9 +175,297 @@ print(celeJmeno)
 
 Všimněme si, že:
 - můžeme "sčítat" textové řetězce
+- proměnné je dobré pojmenovávat smysluplnými názvy, aby bylo jasné, co je v proměnné uloženo - ušetříme si tím starosti, až po sobě budeme číst kód někdy v budoucnu, případně pokud jej bude číst někdo další
+
+Pozor: nemůžeme používat proměnou před tím, než do ní uložíme hodnotu.
+Python by v takové případě nevěděl, jaká je její hodnota - mělo by to být 0, prázdný řetězec "", False, None či jaká hodnota?
+
+```python
+a = 10
+print(a + b)
+```
+
+Pokud tento kód zkusíme spustit, vyskočí na nás chybová hláška: `NameError: name 'b' is not defined`.
+
+### Datové typy
+
+Proměnné mohou obsahovat různé typy dat - zatím jsme se setkali s textovými řetězci, celými a desetinnými čísly, jde ale i logický (true/false) typ Boolean a mnoho dalších.
+Pokud si nejsme jistí, o jaký datový typ se jedná, můžeme použít funkci `type()`:
+
+```python
+jmeno = "Adam"
+vek = 26
+energie = 0.34
+happy = True
+
+print(type(jmeno))
+print(type(vek))
+print(type(energie))
+print(type(happy))
+```
+
+Těch základních však mnoho není:
+
+#### integer (zkráceně int) - celá čísla
+
+S integer (celými čísly) můžeme provádět všechny očekávatelné matematické operace, základními jsou:
+
+```python
+# sčítání - výsledek je celé číslo
+soucet = 5 + 1
+print(soucet)
+
+
+# odčítání - výsledek je celé číslo
+rozdil = 9 - a
+print(rozdil)
+
+
+# násobení - výsledek je celé číslo
+soucin = a * b
+print(soucin)
+
+
+# dělení - pozor: výsledkem dělení je v Pythonu 3 datový typ float
+podil = 10 / 3
+print(podil)
+
+# float je výsledkem dělení, i když vyjde celé číslo
+print(type(soucet))
+print(type(rozdil))
+print(type(soucin))
+print(type(podil))
+print(type(10/2))
+```
+
+Mezi další operace patří:
+
+```python
+# celociselne deleni - zaokrouhleny podil - vysledek je cele cislo
+podil = 10 // 3
+print(podil)
+
+# tzv. modulo - zbytek po celociselnem deleni - vysledek je cele cislo
+# hodi se, pokud chceme provadet nejaky ukon v kazdem druhem, tretim, desatem pripade a podobne...
+zbytek = 10 % 3
+print(zbytek)
+print(11 % 3)
+print(12 % 3)
+print(13 % 3)
+
+# mocnina - vysledek je cele cislo
+squared = 2 ** 3
+print(squared)
+print(5 ** 2)
+print(5 ** 3)
+```
+
+#### float (float) - čísla pohyblivou desetinnou čárkou
+
+Float neboli čísla s pohyblivou čárkou jsou defacto desetinná čísla.
+(Python má však i speciální typ `decimal` s vyšší přesností a proto mluvíme o float trochu neintuitivně jako číslech s pohyblivou desetinnou čárkou a ne přímo o desetinných číslech.)
+Float může být v určitých situacích mírně nepřesný - dělení drobných extrémně malých čísel, v běžném užití to ale nemusíme příliš řešit.
+Pokud bychom dělali přesné fyzikální či bankovní výpočty, je ale lepší se podívat a použít přímo `decimal`.
+
+Chceme-li v Pythonu vytvořit proměnnou jako typ `float`, zadáme hodnotu proměnné jako číslo s desetinnou čárkou (zapsanou anglickým způsobem znakem tečky) - Python na oplátku desetinná čísla vždy vypisuje také s tečkou:
+
+```python
+f = 0.5
+
+# pokud jde o celé číslo, které ale chceme mít jako float, také použijeme tečku
+f = 7.0 # toto je float
+
+i = 7   # toto je integer
+
+print(10.0 / 2.0) # i když by výsledek mohl být celé číslo, Python jej vypíše s tečkou, protože jde o typ float 
+```
+
+Float umožňuje stejné operace jako integer, výsledek je vždy opět float:
+
+```python
+print(10.0 + 1.0) # sčítání - výsledek je float
+print(10.0 - 1.0) # odčítání - výsledek je float
+print(10.0 * 2.0) # násobení - výsledek je float
+print(10.0 / 3.0) # dělení - výsledek je float
+print(10.0 // 3.0) # celočíselné dělení - pozor výsledek je stejně float
+print(10.0 % 3.0) # zbytek po dělení - pozor výsledek je stejně float
+print(10.0 ** 2.0) # mocnina - výsledek je float
+```
+
+##### Interakce float a integer
+
+Pythonu nevadí, pokud chceme dělat operace nad float a integer zaráz, umí si s tím poradit.
+Matematické operace tak jsou intuitivní, vše se chová podobně jako v normálním světě, kde také dokážeme v pohodě sečíst 10 a 5.5, případně 10.5 a 0.5.
+Pokud se ve výpočtu objeví alespoň jeden float, je výsledek vždy float:
+
+```python
+print(10.0 + 1) # sčítání - výsledek je float
+print(10 - 1.0) # odčítání - výsledek je float
+print(10 * 2.0) # násobení - výsledek je float
+print(10.0 / 3) # dělení - výsledek je float
+print(10.0 // 3) # celočíselné dělení - pozor výsledek je stejně float
+print(10 % 3.0) # zbytek po dělení - pozor výsledek je stejně float
+print(10 ** 2.0) # mocnina - výsledek je float
+```
+
+#### string (zkráceně str) - textové řetězce
+
+Typ string neboli textový řetězec slouží k ukládání textu.
+Píšeme jej vždy do uvozovek, Python by si jinak mohl řetězec splést se jménem proměnné či jiným klíčovým slovem:
+
+```python
+jmeno = "Daliborka" # do proměnné jmeno uložíme textový řetězec "Daliborka" 
+preferovaneOsloveni = Daliborka # do proměnné preferovaneOsloveni ulozime hodnotu promenne Daliborka - ta ale nebyla zatim definovana a tak dojde k chybe
+```
+
+K hlubší podstatě, háčkům a vychytávkám textových řetězců se vrátíme později.
+Prozatím nám bude stačit pár základních operací se string:
+
+```python
+jmeno = "Marie"
+prijmeni = "Malinová"
+
+# sčítání - či spíše spojování řetězců
+celeJmeno = jmeno + prijmeni
+print(cele jmeno)
+
+# násobení řetězců
+jmenoStokrat = jmeno * 100
+print(jmenoStokrat)
+```
+
+Další operace jako dělení, odčítání, mocnina a podobně nejsou se string možné.
+I v reálném životě bychom si je těžko představovali.
+Jaký by měl být výsledek `"Petr" / 2`?
+Těžko říct. A tak Python tyto operace nemá.
+
+#### boolean (zkráceně bool) - logické hodnoty True/False
+
+Typ boolean je logickým typem, může mít pouze dvě hodnoty - `True` nebo `False`.
+Základní operace s booleanem jsou definovány klíčovými slovy `and`, `or`  a `not`:
+
+```python
+# AND - výsledek je True, jen pokud jsou obě hodnoty True
+print(True and True) # =True
+print(True and False) # =False
+print(False and True) # =False
+print(False and False) # =False
+
+# OR - výsledek je True, pakliže alespoň jedna hodnota je True, případně obě jsou True
+
+print(True or True) # =True
+print(True or False) # =True
+print(False or True) # =True
+print(False or False) # =False
+
+# NOT - neguje následující booleanovskou hodnotu
+print(not True) # =False
+print(not False) # =True
+```
+
+---
+Pro tip: Hodnota True v Pythonu odpovídá také hodnotě 1, hodnota False odpovídá také hodnotě 0.
+Teoreticky můžeme dělat operace jako `1 + True`, což by se rovnalo 2.
+V praxi je to ale zbytečné.
+Nachytat by nás ale mohlo porovnávání `1 == True`, které je pravdivé, True se skutečně rovná 1, více v kapitole porovnávání hodnot.
+
+#### NoneType
+
+NoneType je speciálním typem, který má pouze jednu hodnotu a tou je `None`, jeho významem je čisté nic - ani 0, ani False, ani prázdný řetězec, ale nic - `None`.
+Užívá se například v situaci, kdy chceme informovat o chybách - pokud se něco pokazí, vrátíme chybu, pokud vše proběhne v pořádku, vrátíme hodnotu `None`.
+K `None` se dostaneme později. 
+
+### Porovnávání hodnot
+
+Často se dostaneme do situace, kdy budeme chtít porovnat dvě různé hodnoty.
+
+#### Rovná se / Nerovná se
+
+Základní provnáním je rovná se `==`, případně nerovná se `!=`.
+Všimněme si, že klasické "rovná se" se v Pythonu i dalších jazycích píše dvěmi rovnítky, zatímco klasické rovná se má význam přiřazení - do proměnné vlevo přiřadí hodnotu napravo a nejde tedy o porovnávání.
+Výsledkem porovnání je typ Boolean, tedy hodnoty `True` nebo `False`:
+
+```python
+# rovná se
+print(7 == 7) # =True
+print(7 == 10) # =False
+
+# nerovná se
+print(7 != 7) # =False
+print(7 != 10) # =True
+
+a = 8
+b = 9
+a = b # do proměnné a přiřadí hodnotu proměnné b - nevrací True ani False, nejde o porovnávání, ale o přiřazení hodnoty 
+```
+
+Porovnávat ale můžeme i jiné typy, například string, float, boolean nebo NoneType:
+
+```python
+print("Ahoj" == "Ahoj") # =True
+print(True == True) # =True
+print(8.001 == 8.001) # =True
+
+print("Ahoj" != "Hi") # =True
+print(True != False) # =True
+print(8.0000000001 != 8.000000002) # =True
+```
+
+Pomocí `==` a `!=` můžeme dokonce porovnávat dva zcela odlišné typy:
+
+```python
+print("Ahoj" == 7) # =False
+print(True == 90) # =False
+print(12 == None) # =False
+
+print(8.0 == 8) # =True
+print(True == 1) # =True - True mimojiné odpovídá hodnotě 1, toto je trochu chyták
+print(False == 0) # =True - False mimojiné odpovídá hodnotě 0, trochu chyták
+```
+
+#### Větší / Menší / Větší nebo rovno / Menší nebo rovno
+
+Číselné typy můžeme porovnávat i pomocí operací větší než, menší než, větši nebo rovno, menší nebo rovno:
+
+```python
+# > větší než
+print(5 > 1) # =True
+print(1 > 5) # =False
+
+# < menší než
+print(5.0 < 10.0) # =True
+print(9.9 < 9.8) # =False
+
+# >= větši nebo rovno
+print(5.0 >= 1) # =True
+print(5.0 >= 5) # =True
+print(5.0 >= 5.1) # =False
+print(5 >= 5.1) # =False
+
+# <= menší nebo rovno
+print(5.0 <= 10) # =True
+print(5.0 <= 5) # =True
+print(5.0 <= 1) # =False
+print(5 <= 1.0) # =False
+```
+
+### Prevody datovych typu 
+
+Občas je potřeba překonvertovat jeden datový typ do jiného, například převést řetězec `"2019"` na celé číslo.
+K těmto účelům slouží standardní funkce `int()`, `float()` a `str()`:
+
+```python
+cislo = 2019
+rok = "2019"
+desetinne = 2019.5
+
+a = str(cislo)
+b = str(desetinne)
+
+print(type(a)) # z int cisla 2019 je nyni retezec "2019"
+print(type(b)) # z float cisla 2019.5 je nyni retezec "2019.5"
+
+
+```
 
 ## Funkce Input (vstup)
-
-## Chybové hlášky
-
-## Proměnné, Porovnávání, Logické operátory: nebo, a, negace
