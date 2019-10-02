@@ -6,7 +6,7 @@ Zápisky a materiály k výuce.
 ## Osnova kurzu
 
 1. [Úvod do kurzu, Instalace](1/README.md)
-2. První program Hello World, Print a chybové hlášky, Proměnné, Porovnávání, Logické operátory: nebo, a, negace
+2. [První program - Hello World, funkce print(), Proměnné, Porovnávání, Logické operátory: nebo, a, negace](2/README.md)
 3. Funkce, Cykly, Cyklus for a while
 4. Správa zdrojového kódu, Git, Větvení v Gitu, Github
 5. Funkce a Řetězce, Vlastní funkce

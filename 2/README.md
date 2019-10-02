@@ -469,3 +469,55 @@ print(type(b)) # z float cisla 2019.5 je nyni retezec "2019.5"
 ```
 
 ## Funkce Input (vstup)
+
+Potřebujeme-li získat vstup od uživatele skrze příkazovou řádku, můžeme v Pythonu použít funkci `input()`.
+Tato funkce nepotřebuje žádné parametry (hodnoty v závorce), avšak i tak jsou tyto prázdné závorky potřeba.
+Vysvětlení a více o funkcích bude rozebráno později.
+
+Narozdíl of funkce `print()`, který vypisuje do příkazové řádky, funkce `input()` vrací hodnoty - text zadaný uživatelkou.
+Jak se k němu můžeme dostat?
+Jednoduše přiřadíme tuto navrácenou hodnotu do proměnné.
+V praxi to pak vypadá takto:
+
+```python
+# zavolame funkci input() a jeji navracenou hodnotu priradime do promenne textUzivatele
+textUzivatele = input()
+
+# zadany text ulozeny do promenne textUzivatele pak muzeme treba vypsat zpet do prikazove radky
+print("zadala jsi text:", textUzivatele)
+```
+
+Celou situaci si můžeme představit tak, že navrácená hodnota funkce nahradí funkci na jejím původním místě, například:
+
+```python
+a = input()
+#je vlastne:
+a = "zadany text"
+```
+
+## Úkol
+
+Vytvořte program, který:
+- uživatelku poprosí o zadání jejího jména 
+- a pak ji tímto jménem osloví
+
+### Řešení
+
+```python
+print("Hello, please enter your name and confirm with enter:")
+
+jmeno = input() #zde program pocka na textovy vstup od uzivatelky
+
+print("Hi, ", jmeno, "!") # využijeme toho, že print() umožňuje tisknout více parametrů/hodnot a vkládá mezi ně mezery
+```
+
+Alternativně můžeme pozdrav složit též sčítáním řetězců, může se hodit pokud nechceme mezeru mezi částmi textu:
+
+```python
+print("Hello, please enter your name and confirm with enter:")
+
+jmeno = input() #zde program pocka na textovy vstup od uzivatelky
+
+print("Hi" + " " + name + "!") # sečteme jednotlivé řetězce a výsledek vytiskneme printem
+# všimněme si, že vlastně tiskneme jednu hodnotu - až výsledek sčítání řetězců
+```
