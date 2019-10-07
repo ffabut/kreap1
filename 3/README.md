@@ -1,0 +1,293 @@
+# Lekce 3
+
+Tato lekce se zaměří na téma větvení programu - řízení toku programu, tedy schopnost programu reagovat na různé situace různými způsoby.
+Základními nástroji pro řízení toku programu jsou podmínky (IF) a cykly (WHILE, FOR).
+
+## Podmínky
+
+Podmínky umožňují vykonat určité části kódů pouze v případě, když platí logická podmínka - například větší než, nebo rovno.
+
+### Jednoduchá podmínka IF
+Nejjednodušeji podoba podmínky užívá jedno klíčové slovo `IF`.
+
+```python
+cislo = 120
+
+if cislo > 10: # vyraz cislo>10 vraci hodnoty True nebo False, pokud vrati True, vykona se odsazena cast kodu
+    print("cislo je vetsi nez 10!") # tyto odsazene radky se vykonaji pouze pokud platila podminka 
+    print("a to je dobre") # tyto odsazene radky se vykonaji pouze pokud platila podminka
+    # zde může pokračovat libovolný počet příkazů podmínky
+
+# zde jiz pokracuje program za vsech okolnosti
+print("jedem dál...")
+```
+
+Všimněme si odsazení bloku následujícího po dvojtečce.
+
+Syntax `IF` vypadá takto:
+- začneme klíčovým slovem IF
+- za něj umístíme libovolný logický výraz
+- ukončíme dvojtečkou - tím určíme, že chceme pokračovat sadou/blokem příkazů na dalším řádku
+- na dalším řádku odsadíme kód o 4 mezery (případně jiný počet, ale vždy stejný)
+  - napíšeme příkaz
+  - pokud chceme více příkazů, odsadíme na dalším řádku stejný počet mezer a napíše další příkaz
+  - dokud jsme odsazení, do té doby jsme v bloku, který se vykoná pouze v případě, že platí podmínka
+- chceme-li podmínku ukončit, pak na novém řádku přestaneme odsazovat, tato část se již vykoná v každém případě
+
+---
+Úkol 1: napište program, který vypíše zda je proměnná `x` větší nebo menší než 100.
+Budete nejspíše potřebovat 2 podmínky IF.
+
+### Podmínka IF-ELSE
+Podmínku `IF` je možné rozšířit klíčovým slovem `ELSE`, abychom mohli zachytit a reagovat na situaci, kdy podmínka neplatí.
+Můžeme tak jednou konstrukcí reagovat na oba výsledky podmínky - na True i na False a nemusíme používat 2x IF:
+
+```python
+cislo = 2
+
+# vykona se bud kod v IF nebo kod v ELSE
+if cislo > 10:
+    print("Cislo je vetsi nez deset!") # vykona se, pokud podminka cislo>10 je True
+else:
+    print("Cislo neni vetsi nez deset!") # vykona se, pokud se nevykonala predchozi podminka, tedy v situaci False
+
+print("pokracujem...")
+```
+
+Všimněme si, že za else je dvojtečka a blok příkazů za else je odsazen.
+
+### Podmínka IF-ELIF-ELSE
+Podmínku můžeme ještě rozšířit libovolným počtem konstruktů `ELIF`.
+Jde o dodatečné podmínky IF, které se vykonají pouze v případě, že se předchozí podmínky nevykonaly a zároveň pokud podmínka v `ELIF` je pravdivá.
+Můžeme tak v jednom konstruktu IF-ELIF-ELSE reagovat na velké množství situací:
+
+```python
+cislo = -10
+
+if cislo > 10:
+    print("cislo je vetsi nez 10")
+elif cislo < 0:
+    print("cislo je mensi nez 10 a je zaporne")
+elif cislo < 10:
+    print("cislo je mensi nez 10")
+elif cislo == 10:
+    print("cislo je rovno 10")
+else:
+    print("tato situace by za vyse zadanych podminek nemela nastat")
+
+print("pokracujem...")
+```
+
+Vsimneme si, ze za klicovym slovem `elif` nasleduje podminka / logicky vyraz, pote dvojtecka a nasledujici blok prikazu je odsazen.
+
+Ve vyse uvedenem priklade by cast kodu `else` nemela nikdy nastat - pro kazde cislo bude platit vzdy jedna z podminek a else tak nenastane.
+Pro tyto případy můžeme `else` vynechat:
+
+```python
+cislo = -10
+
+if cislo > 10:
+    print("cislo je vetsi nez 10")
+elif cislo < 0:
+    print("cislo je mensi nez 10 a je zaporne")
+elif cislo < 10:
+    print("cislo je mensi nez 10")
+elif cislo == 10:
+    print("cislo je rovno 10")
+
+print("pokracujem...")
+```
+
+## Klíčové slovo pass
+
+Občas se nám může stát, že některém bloku nechceme nic provést.
+Nemůžeme ale do bloku nic nenapsat, s tím by měl python problém, tento kód nebude fungovat:
+
+```python
+heslo = 12345 # slabe heslo...
+
+if heslo == 12345:
+else:
+    exit() # funkce exit slouzi k okamzitemu ukonceni programu
+
+print("část programu pro zasvěcené...")
+```
+
+Python nám vyhodí chybu: `IndentationError: expected an indented block`, jelikož po dvojtečce na řádky IF očekává odsazení a blok kódu.
+
+Abychom vytvořili blok, ale zároveň nemuseli zadávat žádný příkaz, je v Pythonu přítomný příkaz `pass`.
+Ten je jednoduše příkazem, který říká, že se nic nemusí dělat.
+Blok tak existuje, ale zároveň se v něm nic neděje:
+
+```python
+heslo = 12345
+
+if heslo == 12345:
+    pass
+else:
+    exit()
+
+print("část programu pro zasvěcené...")
+```
+
+Poznámka: problém jsme mohli také řešit otočením logické podmínky, což by bylo asi elegantnější a zároveň by to nevyžadovalo `pass`.
+
+```python
+heslo = 12345
+
+if heslo != 12345: # pokud se heslo nerovná 12345
+    exit()
+
+print("část programu pro zasvěcené...")
+```
+
+---
+
+Úkol 2: napiště program, který otestuje, zda je uživatel člověk.
+Nejspíše použijete funkci `input()`, podmínku IF-ELIF-ELSE a funkci exit().
+
+
+## Cykly
+
+Cykly nám umožňují několikrát opakovat určitou stejnou část kódu.
+
+### Cyklus While
+
+Cyklus `while` opakuje kód, dokud je podmínka cykly pravdivá:
+
+```python
+i = 0
+
+while i < 100: # pokud je podmínka pravdivá, cyklys while vykoná všechny příkazy v dalším bloku a poté se vše zopakuje - opět se otestuje podmínka atd...
+    print(i) # vypiseme promennou i 
+    i = i + 1 # zvetsime promennou i o 1, cyklus se zopakuje
+
+print("a to je vse...") # kdyz podminka neni pravdiva, cyklus se ukonci a program pokracuje dal v kodu
+```
+
+---
+Příklad 3: Napiště program, který bude postupně počítat do nekonečna.
+Poznámka: možná budete potřebovat program "násilně" ukončit, k tomu jde v příkazové řádce použít příkaz ctrl-c, případně command-c.
+
+#### Cyklus while rozšířený o else
+
+Občas můžeme potřebovat 
+K tomuto účelu je možné rozšířit `while` o statement `else`:
+
+```python
+i = 1000
+
+while i > 2:
+    print(i)
+    i = i / 2
+else: # vykona se po skončení cyklu while
+    print("výsledek je:", i)
+
+print("konec")
+```
+
+Poznámka: `else` se v případě cyklů while a for, (a v případě konstruktu try-except vysvětlíme později), chová jinak než případě podmínky IF.
+Zatímco v případě if a if-elif se else vykoná jen v případě, že se žádná předcházející podmínka neprovedla, tak v případě v cyklů while a for a statementu try-except se else provede vždy po jejich normálním skončení - výjimkou je chyba během provádění cyklu, či případně předčasné ukončení příkazem `break` (vysvětlíme později).
+
+Konstrukt while-else není potřeba extra znát, nepoužívá se zase tak často.
+
+
+### Cyklus for
+
+Cyklus `for` slouží k procházení skrz kolekce objektů (seznamy, slovníky a podobně - budeme se ji věnovat později) - ve zkratce ale jde o proměnné, které obsahují více seřazených či neseřazených hodnot - například seznam studentek a studentů a podobně.
+Prozatím ale využijeme toho, že datový typ `string` je v podstatě seznamem znaků/písmen a budeme tak procházet skrze řetězce string.
+
+Jednoduchý cyklus for vypadá například takto:
+
+```python
+jméno = "Ladislava Pěchoučková"
+
+for znak in jméno: # postupně vezme každý znak v řetězci jméno, uloží jej do proměnné znak a pak vykoná blok příkazů
+    print(10*znak) # v prvním běhu je znak=="L", poté znak=="a", pak znak=="d" atd....
+
+print("KONEC")
+```
+
+Cyklus začíná klíčovým slovem `for`, po něm následuje jméno proměnné, do které se postupně bude ukládat každý prvek obsažený v kolekci uvedené po klíčovém slovu `in`, vše ukončeno dvojtečkou a odsazeným blokem příkazů.
+
+#### Cyklus for rozšířený o else
+
+Stejně jako u while můžeme cyklus for rozšířit o `else`, které se provede po normálním běžném ukončení celého cyklu for:
+
+```python
+jméno = "Ladislava Pěchouček"
+
+for znak in jméno:
+    print(znak)
+else:
+    print("poslední znak je:", znak)
+
+print("poslední znak je:", znak)
+```
+
+Konstrukt for-else není extra praktický a nemusíme si jej moc pamatovat.
+
+
+## Zanořování kódu - podmínek do cyklů a naopak
+
+Občas se dostaneme do situace, že potřebujeme v cyklu podmínku či naopak, potřebujeme bloky kódu zanořit do sebe.
+V základě se nic nemění, pouze zanořený blok odsadíme o další 4 mezery, například takto:
+
+```python
+for znak in "Ladislava Pěchoučková":
+    # blok - tělo cyklu je odsazeno 4 mezerami
+    # vytvoříme podmínku
+    if znak == "a":
+        print(10*znak) # blok - tělo podmínky je odsazeno o další 4 mezery navíc než blok, v kterém se nachází
+    else:
+        print(znak) # stejně tak je navíc odsazeno else
+
+    print("zbytek příkazů, které mají být v těle cyklu, je odsazen 4 mezerami")
+
+print("a zde jsme již zpátky v normálním běhu programu")
+```
+
+Zanořit můžeme i dva cykly do sebe:
+
+```python
+for znak in "Zikmund Pechánek":
+    x = 1
+    while x < 10:
+        print(x*znak)
+        x = x + 1
+```
+
+A samozřejmě i dvě podmínky:
+
+```python
+x = 132
+
+if x % 2 == 0:
+    print("číslo je dělitelné 2")
+    if x % 3 == 0:
+        print("a navíc je i dělitelné 3!")
+
+print("konec")
+```
+
+---
+
+Zanořovat samozřejmě můžeme i více než 2 úrovně cyklů a podmínek.
+Výraznějšímu zanoření je ale lepší se vyhýbat, kód pak začíná být těžce srozumitelný a můžeme začít dělat chyby, které nebudou na první pohled dobře patrné.
+
+### Break - Předčasné ukončení cyklu
+
+Cyklus můžeme předčasně ukončit pokud zavoláme příkaz `break`.
+
+```python
+x = 1000
+
+while True: #místo logického výrazu / podmínky můžeme zapsat i True - pak vytvoříme nekonečný cyklus While
+    x = x + 1
+    if x / 13 = 1234: # pokud je výsledek 1234
+        break # tak se cyklus ukončí
+
+print(x, "po dělení 13 je 1234")
+```
+
+### Continue - předčasné ukončení jednoho opakování cyklu

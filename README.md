@@ -7,8 +7,8 @@ Zápisky a materiály k výuce.
 
 1. [Úvod do kurzu, Instalace](1/README.md)
 2. [První program - Hello World, funkce print(), Proměnné, Porovnávání, Logické operátory: nebo, a, negace](2/README.md)
-3. Funkce, Cykly, Cyklus for a while
-4. Správa zdrojového kódu, Git, Větvení v Gitu, Github
+3. Řídící struktury: Podmínka IF, Cykly WHILE a FOR
+4. Funkce, Správa zdrojového kódu, Git, Větvení v Gitu, Github
 5. Funkce a Řetězce, Vlastní funkce
 6. Výjimky, Moduly, Testování, Cyklické importy, Testování
 7. Spolupráce a Open source, Ignorování souborů, Soubory
