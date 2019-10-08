@@ -36,7 +36,7 @@ Syntax `IF` vypadá takto:
 
 ---
 Úkol 1: napište program, který vypíše zda je proměnná `x` větší nebo menší než 100.
-Budete nejspíše potřebovat 2 podmínky IF.
+Budete nejspíše potřebovat 2 podmínky IF. (Řešení pro kontrolu [zde](ukol1.py).)
 
 ### Podmínka IF-ELSE
 Podmínku `IF` je možné rozšířit klíčovým slovem `ELSE`, abychom mohli zachytit a reagovat na situaci, kdy podmínka neplatí.
@@ -145,6 +145,7 @@ print("část programu pro zasvěcené...")
 
 Úkol 2: napiště program, který otestuje, zda je uživatel člověk.
 Nejspíše použijete funkci `input()`, podmínku IF-ELIF-ELSE a funkci exit().
+(Řešení pro kontrolu [zde](ukol2.py).)
 
 
 ## Cykly
@@ -166,8 +167,9 @@ print("a to je vse...") # kdyz podminka neni pravdiva, cyklus se ukonci a progra
 ```
 
 ---
-Příklad 3: Napiště program, který bude postupně počítat do nekonečna.
+Úkol 3: Napiště program, který bude postupně počítat do nekonečna.
 Poznámka: možná budete potřebovat program "násilně" ukončit, k tomu jde v příkazové řádce použít příkaz ctrl-c, případně command-c.
+(Řešení pro kontrolu [zde](ukol3.py).)
 
 ### Cyklus for
 
@@ -318,3 +320,14 @@ while i < 999:
 
 Poznámka: v kódu nahoře by šlo použít i podmínku `if i % 13 == 0` a pak vypsat číslo.
 Možná by to byla elegantnější varianta než použití `continue`, ale to je na našem vkuse a uvážení.
+
+## Procvičování
+
+Úkol 4: Udělejte lepší verzi programu, který ověřuje, zda je uživatel člověk nebo bot.
+Nápověda: Může se vám hodit nekonečný cyklus while, podmínka a break. 
+(Řešení pro kontrolu [zde](ukol4.py).)
+
+Úkol 5: Napiště program, který z textového řetězce odstraní samohlásky a výsledek vytiskne.
+Nemusíte řešit diakritiku a velká písmena.
+Nápověda: Může se vám hodit for proměnná, loop a podmínka.
+(Řešení pro kontrolu [zde](ukol5.py).)
