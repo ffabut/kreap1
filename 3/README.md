@@ -169,29 +169,6 @@ print("a to je vse...") # kdyz podminka neni pravdiva, cyklus se ukonci a progra
 Příklad 3: Napiště program, který bude postupně počítat do nekonečna.
 Poznámka: možná budete potřebovat program "násilně" ukončit, k tomu jde v příkazové řádce použít příkaz ctrl-c, případně command-c.
 
-#### Cyklus while rozšířený o else
-
-Občas můžeme potřebovat 
-K tomuto účelu je možné rozšířit `while` o statement `else`:
-
-```python
-i = 1000
-
-while i > 2:
-    print(i)
-    i = i / 2
-else: # vykona se po skončení cyklu while
-    print("výsledek je:", i)
-
-print("konec")
-```
-
-Poznámka: `else` se v případě cyklů while a for, (a v případě konstruktu try-except vysvětlíme později), chová jinak než případě podmínky IF.
-Zatímco v případě if a if-elif se else vykoná jen v případě, že se žádná předcházející podmínka neprovedla, tak v případě v cyklů while a for a statementu try-except se else provede vždy po jejich normálním skončení - výjimkou je chyba během provádění cyklu, či případně předčasné ukončení příkazem `break` (vysvětlíme později).
-
-Konstrukt while-else není potřeba extra znát, nepoužívá se zase tak často.
-
-
 ### Cyklus for
 
 Cyklus `for` slouží k procházení skrz kolekce objektů (seznamy, slovníky a podobně - budeme se ji věnovat později) - ve zkratce ale jde o proměnné, které obsahují více seřazených či neseřazených hodnot - například seznam studentek a studentů a podobně.
@@ -209,24 +186,6 @@ print("KONEC")
 ```
 
 Cyklus začíná klíčovým slovem `for`, po něm následuje jméno proměnné, do které se postupně bude ukládat každý prvek obsažený v kolekci uvedené po klíčovém slovu `in`, vše ukončeno dvojtečkou a odsazeným blokem příkazů.
-
-#### Cyklus for rozšířený o else
-
-Stejně jako u while můžeme cyklus for rozšířit o `else`, které se provede po normálním běžném ukončení celého cyklu for:
-
-```python
-jméno = "Ladislava Pěchouček"
-
-for znak in jméno:
-    print(znak)
-else:
-    print("poslední znak je:", znak)
-
-print("poslední znak je:", znak)
-```
-
-Konstrukt for-else není extra praktický a nemusíme si jej moc pamatovat.
-
 
 ## Zanořování kódu - podmínek do cyklů a naopak
 
@@ -290,4 +249,72 @@ while True: #místo logického výrazu / podmínky můžeme zapsat i True - pak 
 print(x, "po dělení 13 je 1234")
 ```
 
+#### Cykly for a while rozšířené o else
+
+Cykly for a while je možné rozšířit o tvrzení `else`.
+To se v tomto případě ale chová lehce neintuitivně - kód v bloku else je spuštěn pokaždé, když cyklus neskončí neočekávaně příkazem break.
+Dalo by se říct, že by se `else` v tomto případě mělo jmenovat spíše `no-break`.
+
+Else statement v cyklech není příliš intuitivní a vyloženě praktický a tak není potřeba si jej vyloženě pamatovat...
+
+##### For-else
+
+Ukázka užití else v cyklu for, zkuste si jej spustit postupně se všemi třemi textovými řetězci (ostatní za/odkomentujte #).
+V prvním případě cyklus proběhne 4x a neskončí skrze `break`, tedy se vykoná i příkaz v else.
+V druhém případě cyklus neproběhne ani 1x, ale přitom neskončí skrze `break`, a tedy se i zde vykoná příkaz v bloku else.
+Ve třetím případě cyklus proběhne 3x, přičemž třetí průběh ukončí cyklus příkazem `break`, a tedy blok else se nevykoná:
+
+```python
+txt = "Ahoj"
+#txt = ""
+#txt = "BREAK"
+
+for znak in txt:
+    print(znak)
+    if znak == "E":
+        break
+else:
+    print("probehl else")
+```
+
+##### While-else
+
+Else se u while chová stejně jako u for, v následujícím příkladu zkuste všechny 3 varianty proměnné i (zakomentujte nepotřebné hodnoty).
+
+V prvním případě (i=1000) se běh zastaví na číslo 250, které se nedá dále dělit, zavolá se break a tedy se nevypíše výsledek, blok else se neprovede.
+V druhém případě (i=0) cyklus neprovede ani 1x, a tedy neskončí skrze `break` a proto se blok `else` vykoná.
+V třetím případě (i=8) se cyklus provede 2x (vypíše 4 a 2) a neskončí `break`, tedy se provede blok `else`, který vypíše, že výsledek je 2.
+
+```python
+i = 1000
+#i = 0
+#i = 8
+
+# cyklus ma za ukol delit cisla, dokud jsou vetsi jak 2
+while i > 2:
+    i = i / 2
+    print(i)
+    if i % 2 != 0: #pokud číslo není dál dělitelné 2, cyklus se ukončí
+        break
+else:
+    print("výsledek je:", i)
+```
+
 ### Continue - předčasné ukončení jednoho opakování cyklu
+
+Continue se používá v cyklech k předčasnému ukončení aktuálního průběhu cyklu - tedy neukončí celý cyklus, ale jen jeho právě probíhající iteraci.
+Následující program vypisuje všechna čísla dělitelná 13 menší než 1000:
+
+```python
+i = 0
+while i < 999:
+    i = i + 1
+    if i % 13 != 0: # pokud zbytek po deleni 13 neni 0, pak 
+        continue # ukoncime tuto iteraci a jdeme na dalsi cislo
+
+    print(i)
+    # zde bychom mohli provadet slozitejsi vypocty a pak by uziti continue davalo vetsi smysl
+```
+
+Poznámka: v kódu nahoře by šlo použít i podmínku `if i % 13 == 0` a pak vypsat číslo.
+Možná by to byla elegantnější varianta než použití `continue`, ale to je na našem vkuse a uvážení.
