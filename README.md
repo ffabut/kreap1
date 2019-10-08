@@ -32,3 +32,8 @@ NEZISKOVKY tu ZAPLAVUJÍ médija s EUROFAŠIZACÍ a mezitím deseti1000íce PŘI
 I přes relativní věrohodnost výstupů se vše odehrává na 340 řádcích kódu, polovinu z nich zabírají komentáře uložené do proměnných, druhou pak funkce generující z komentářů komentáře nové.
 Autor není umělec, ale programátor povoláním.
 I tak jde ale o velmi povedené angažované dílo.
+
+## Další zdroje pro studium
+
+Pěkné materiály nabízí česká neziskovka Pyladies.cz, dostupné jsou například zde: https://naucse.python.cz/2019/brno-podzim-pondeli/.
+Oproti materiálům kurzu KREAP1 jsou obsáhlejší a dají se použít k dalšímu procvičování.
