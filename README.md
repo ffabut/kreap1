@@ -8,16 +8,17 @@ Zápisky a materiály k výuce.
 1. [Úvod do kurzu, Instalace](1/README.md)
 2. [První program - Hello World, funkce print(), Proměnné, Porovnávání, Logické operátory: nebo, a, negace](2/README.md)
 3. [Řídící struktury: Podmínka IF, Cykly WHILE a FOR, klíčová slova continue a break](3/README.md)
-4. Funkce, Správa zdrojového kódu, Git, Větvení v Gitu, Github
-5. Funkce a Řetězce, Vlastní funkce
+4. Funkce a Metody - built-in, tvorba vlastní funkce
+5. Funkce a Řetězce
 6. Výjimky, Moduly, Testování, Cyklické importy, Testování
 7. Spolupráce a Open source, Ignorování souborů, Soubory
 8. Seznamy, N-tice
 9. Grafika
-10. Slovníky, JSON, API
-11. Třídy, Dědičnost
-12. Závěrečný projekt
-13. Závěrečný projekt, retrospektiva
+10. Správa zdrojového kódu, Git, Větvení v Gitu, Github
+11. Slovníky, JSON, API
+12. Třídy, Dědičnost
+13. Závěrečný projekt
+14. Závěrečný projekt, retrospektiva
 
 ## Kreativní programování / Software Art - ukázky
 
