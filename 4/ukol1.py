@@ -1,3 +1,7 @@
-pozdrav = "Hello world!" # je to málo nahlas, chceme capslock
-pozdrav = pozdrav.upper() #pozdrav je typu string, typ string obsahuje metodu upper(), kterou nyní voláme
-print(pozdrav)
+def soucet(a, b):
+    vysledek = a + b
+    return vysledek
+
+# otestovani funkcnosti:
+x = soucet(10, 15)
+print(x)

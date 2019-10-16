@@ -8,7 +8,7 @@ Zápisky a materiály k výuce.
 1. [Úvod do kurzu, Instalace](1/README.md)
 2. [První program - Hello World, funkce print(), Proměnné, Porovnávání, Logické operátory: nebo, a, negace](2/README.md)
 3. [Řídící struktury: Podmínka IF, Cykly WHILE a FOR, klíčová slova continue a break](3/README.md)
-4. Funkce a Metody - built-in, tvorba vlastní funkce
+4. [Funkce, built-in funkce, tvorba vlastní funkce](4/README.md)
 5. Funkce a Řetězce
 6. Výjimky, Moduly, Testování, Cyklické importy, Testování
 7. Spolupráce a Open source, Ignorování souborů, Soubory
