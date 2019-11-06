@@ -9,8 +9,8 @@ Zápisky a materiály k výuce.
 2. [První program - Hello World, funkce print(), Proměnné, Porovnávání, Logické operátory: nebo, a, negace](2/README.md)
 3. [Řídící struktury: Podmínka IF, Cykly WHILE a FOR, klíčová slova continue a break](3/README.md)
 4. [Funkce, built-in funkce, tvorba vlastní funkce](4/README.md)
-5. [Kolekce - Ntice, Seznamy, Množiny a Slovníky](5/README.md)
-6. Výjimky, Moduly, Testování, Cyklické importy, Testování
+5. [Kolekce - Ntice, Seznamy, Množiny](5/README.md)
+6. Kolekce - Slovníky, kopírování kolekcí
 7. Spolupráce a Open source, Ignorování souborů, Soubory
 8. Seznamy, N-tice
 9. Grafika
