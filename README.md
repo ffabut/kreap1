@@ -34,6 +34,18 @@ I přes relativní věrohodnost výstupů se vše odehrává na 340 řádcích k
 Autor není umělec, ale programátor povoláním.
 I tak jde ale o velmi povedené angažované dílo.
 
+### Akron & Cincinnati
+
+Akron & Cincinnati z roku 2012 je twitterový bot umělce Coryho Arcangela.
+Tento skript v programovacím jazyce Perl automaticky zveřejňuje na Twitter posty v zažitém tvaru `město-->město` a tím předstírá, že vlastník účtu hodně cestuje.
+Jde o automatické hraní divadla na sociální síti.
+
+Kód je dostupný z https://github.com/coryarcangel/Akron-Cincinnati/ (ale možná již nebude funkční).
+Více o díle je možné najít na portfoliu umělce: http://www.coryarcangel.com/things-i-made/code-akron-cincinnati.
+
+Tento bot by se v současnosti v Pythonu dal napsat za použití knihovny Tweepy (http://www.tweepy.org/).
+S Tweepy jde napsat i vlastní, jinak fungující Twitterové boty.
+
 ## Další zdroje pro studium
 
 Pěkné materiály nabízí česká neziskovka Pyladies.cz, dostupné jsou například zde: https://naucse.python.cz/2019/brno-podzim-pondeli/.
