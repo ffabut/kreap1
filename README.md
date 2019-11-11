@@ -46,6 +46,13 @@ Více o díle je možné najít na portfoliu umělce: http://www.coryarcangel.co
 Tento bot by se v současnosti v Pythonu dal napsat za použití knihovny Tweepy (http://www.tweepy.org/).
 S Tweepy jde napsat i vlastní, jinak fungující Twitterové boty.
 
+### Pizza Party
+
+Pizza Party z roku 2004 od Coryho Arcangela je program, který umožňuje objednávat pizzu z příkazové řádky.
+Dost možná jde o ironický komentář ke všem možným užitečným prográmkům do příkazové řádky - jejich určité zradikalizování a převod do nástroje ovlivňujícího běžný život, nebo možná jen komentář k jisté lenosti části programátorské a IT obce...
+
+Napsáno v Pearlu, kód je dostupný na: https://github.com/coryarcangel/Pizza-Party-0.1.b/, ale program po letech už asi nebude funkční.
+
 ## Další zdroje pro studium
 
 Pěkné materiály nabízí česká neziskovka Pyladies.cz, dostupné jsou například zde: https://naucse.python.cz/2019/brno-podzim-pondeli/.
