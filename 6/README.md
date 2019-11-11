@@ -139,9 +139,11 @@ jedenParametr = slovnik.get("anthopocene") # klic anthropocene neexistuje, nezad
 print(existujici, neexistujici, jedenParametr) # vypise: 12, 110, None
 ```
 
----
+#### Metoda setdefault()
 
-Poznámka: pokud bychom rádi neexistující klíč i s hodnotou rádi rovnou vložili do slovníku, pak můžeme použít metodu setdefault():
+Pokud chceme, stejně jako v případě metody `get()`, získat hodnotu a v případě neexistujícího klíče užít defaultní hodnotu, můžeme použít také metodu `setdefault()`.
+Narozdíl od `get()` však metoda `setdefault()` případně rovnou i vloží neexistující dvojici klíč:defaultní-hodnota do slovníku.
+Pro příště tak už bude klíč a hodnota rovnou dostupná ve slovníku:
 
 ```python
 slovnik = {"klic" : "hodnota", "key" : 12, "dog": "pes"}
@@ -151,34 +153,124 @@ print(neexistujici) # vypise: "cool"
 print(slovnik) #vypise: {"klic" : "hodnota", "key" : 12, "dog": "pes", "art" : "cool"}
 ```
 
----
+#### Metoda pop()
 
-TODO:....
-
-### Kopírování seznamů
-
-Jak jsme si rekli v predeslych hodinach: promenne v Pythonu neobsahuji hodnoty primo, ale obsahuji pouze odkazy na tyto hodnoty v pameti.
-V pripade cely cisel a podobnych jednoduchych promennych to nedela problem, jelikoz nebudeme menit hodnotu ulozenou pod adresou v pameti odpovidajici cislu 7 - adresa cisla 7 a hodnota tam ulozena (7) tak budou porad stejne. V pripade seznamů ale tyto hodnoty můžeme měnit a to vyvolává pár problému.
-
-##### Přiřazení není kopie, ale odkaz na stejný seznam
+Pomocí metody `pop()` můžeme přistoupit ke hodnotě pod klíčem a poté dvojici klíč-hodnota odstranit ze slovníku:
 
 ```python
-seznam = [1, 2, 3]
-druhy = seznam # do promenne druhy neukladame kopii seznamu seznam, ale odkaz na tento seznam
+slovnik = {"klic" : "hodnota", "key" : 12, "dog": "pes"}
 
-# obe promenne seznam i druhy odkazuji ke stejnemu mistu v pameti
-# pokud zmenime jedno, zmeni se i to druhe:
+print(slovnik.pop("dog")) # vypise: pes a odstrani dvojici ze slovniku
+print(slovnik) # dog:pes jiz neni ve slovniku, vypise: {"klic" : "hodnota", "key" : 12}
 
-seznam[0] = "jedna"
-druhy[2] = "tri"
-print(seznam)
-print(druhy)
+# pokud klic neni ve slovniku, nastane chyba keyError
+# tomu muzeme predejit tim, ze uvedeme defaultni hodnotu
+
+print(slovnik.pop("cat", "kocka")) # vypise: kocka, a dale nic, dvojice neni ve slovniku a tak ji netreba odstranovat
+print(slovnik) # cat:kocka nebyla a neni ve slovniku, vypise: {"klic" : "hodnota", "key" : 12}
 ```
 
-Toto je trochu zakerne a necekane chovani, je treba na nej pamatovat.
+## Další užitečné funkce a operace s kolekcemi
 
-##### Mělká kopie
+### Sčítání posloupností
 
-Seznamy můžeme skutečně kopírovat pomocí 
+Posloupnosti můžeme sčítat pomocí operátoru `+`.
+Druhá posloupnost bude navázána za tu první:
 
+```python
+s = (1, 2, 3)
+t = (30, 31, 32)
 
+x = s + t # secte dve posloupnosti, druha 
+print(x) # vypise: (1, 2, 3, 30, 31, 32)
+```
+
+### Násobení posloupností
+
+Násobení dává smysl pouze u posloupností, u neseřazených kolekcí jako množiny a slovníky nedává smysl.
+Posloupnosti můžeme násobit celým číslem, užití je následující:
+
+```python
+den = ["dopoledne", "odpoledne", "brzká noc", "pozdní noc"]
+tyden = den * 7
+
+print(tyden) # vypise: ["dopoledne", "odpoledne", "brzká noc", "pozdní noc", "dopoledne", "odpoledne", "brzká noc", "pozdní noc", "dopoledne", ...... , "pozdní noc"]
+```
+
+### Funkce len() pro zjištění velikosti kolekce
+
+Pokud chceme zjistit, jak velká je kolekce, kolik má prvků, pak můžeme použít built-in funkci `len()`:
+
+```python
+ntice = (1, 2, 3)
+seznam = [1, 2]
+mnozina = {1, 2, 3, 4, 4, 5} # pozor prvek 4 je duplicitni, coz v mnozine nejde, vysledek je tedy defacto {1, 2, 3, 4, 5}
+slovnik = {"jedna": 1, 2: "dva"}
+
+print("velikost ntice:", len(ntice))      # 3
+print("velikost seznamu:", len(seznam))   # 2
+print("velikost mnoziny:", len(mnozina))  # 5
+print("velikost ntice:", len(slovnik))    # 2
+```
+### Otočení směru iterace přes posloupnost
+
+Občas se může hodit procházet přes posloupnosti v opačném směru, tj. od konce k začátku, k tomu můžeme použít built-in funkci `reversed()`.
+Ale pozor: tato funkce nevytváří obrácenou kopii posloupnosti, pouze iterátor, který bude procházet posloupností naopak.
+Hodí se tak používat hlavně v kombinaci s `for` cyklem.
+Ale ne k vytváření otočené posloupnosti a jejího uložení do proměnné:
+
+```python
+ntice = (1, 2, 3, 4, 5)
+
+for x in reversed(ntice):
+    print(x)
+
+x = reversed(ntice)
+print(x) #vytiskne: <reversed object at 0x7f1c6d11c6d0> neboli adresu iteratoru
+# neda se s tim pracovat jako s beznou posloupnosti
+```
+
+### Převod kolekcí na jiný typ kolekce
+
+Kolekce můžeme převádět na kýžený typ kolekce pomocí funkcí `tup()`, `list()`, `set()`:
+```python
+ntice = (1, 2, 3, 4, 5, 4)
+seznam = ["a", "b", "c"]
+mnozina = {90, 91, 92}
+slovnik = {"x": "XX", "y": "YY"}
+
+# prevod na tuple s funkci tuple():
+print(tuple(ntice))     # (1, 2, 3, 4, 5, 4) 
+print(tuple(seznam))    # ("a", "b", "c")
+print(tuple(mnozina))   # (90, 91, 92)   - poradi muze byt i jine
+print(tuple(slovnik))   # ("x", "y")
+
+# prevod na seznam s funkci list():
+print(list(ntice))     # [1, 2, 3, 4, 5, 4] 
+print(list(seznam))    # ["a", "b", "c"]
+print(list(mnozina))   # [90, 91, 92]   - poradi muze byt i jine
+print(list(slovnik))   # ["x", "y"]
+
+# prevod na mnozinu s funkci set()
+# mnozina nemuze obsahovat vice stejnych prvku, proto duplicitni prvky nebudou soucasti vysledku:
+print(set(ntice))     # {1, 2, 3, 4, 5} - prvek 4 byl duplicitni, v mnozine muze byt pouze jednou
+print(set(seznam))    # {"a", "b", "c"}
+print(set(mnozina))   # {90, 91, 92}   - poradi muze byt i jine
+print(set(slovnik))   # {"x", "y"}
+```
+
+### Kopírování kolekcí
+
+Na tuto trochu složitější problematiku se podíváme v další lekci.
+
+## Procvičování
+
+Úkol4: Naplánujte program, který bude překládat/zaměňovat určitá slova v textu.
+Jak bychom tento program postavili?
+Zkuste si naplánovat architekturu programu.
+Co bude potřeba udělat s textem a podobně...
+Možné řešení [zde](ukol4.py).
+
+Úkol5: Zkuste program z úkolu 4 zrealizovat.
+Bude se vám hodit proměnná obsahující vstupní text, slovník obsahující dvojice slov, metoda řetězců `split()` a for loop.
+Řešení [zde](ukol5.py).

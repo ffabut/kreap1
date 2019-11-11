@@ -10,8 +10,8 @@ Zápisky a materiály k výuce.
 3. [Řídící struktury: Podmínka IF, Cykly WHILE a FOR, klíčová slova continue a break](3/README.md)
 4. [Funkce, built-in funkce, tvorba vlastní funkce](4/README.md)
 5. [Kolekce - Ntice, Seznamy, Množiny](5/README.md)
-6. [Kolekce - Slovníky, kopírování kolekcí](6/README.md)
-7. Spolupráce a Open source, Ignorování souborů, Soubory
+6. [Kolekce - Slovníky, některé další operace s kolekcemi](6/README.md)
+7. Kopírování kolekcí - mělké a hluboké kopie
 8. Seznamy, N-tice
 9. Grafika
 10. Správa zdrojového kódu, Git, Větvení v Gitu, Github
