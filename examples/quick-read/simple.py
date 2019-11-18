@@ -1,0 +1,7 @@
+"""
+Program na rychlé čtení 
+"""
+
+
+
+
