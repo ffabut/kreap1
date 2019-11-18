@@ -53,6 +53,12 @@ Dost možná jde o ironický komentář ke všem možným užitečným prográmk
 
 Napsáno v Pearlu, kód je dostupný na: https://github.com/coryarcangel/Pizza-Party-0.1.b/, ale program po letech už asi nebude funkční.
 
+### Reject Me
+
+Reject Me z roku 2005 od neznámé autorky pomáhal svým uživatelům udržet své místo na pracovním úřadě v GB.
+A to tím, že umožňoval generovat falešné zprávy o odmítnutí uchazeče z pracovního konkurzu.
+Více o programu je možné najít na: http://runme.org/project/+rejectme/?fbclid=IwAR256N0RECFkB7rL9mInVwGgnQpkf-ankrErDbVAEZExZBwIHBVLYW3A85E.
+
 ## Další zdroje pro studium
 
 Pěkné materiály nabízí česká neziskovka Pyladies.cz, dostupné jsou například zde: https://naucse.python.cz/2019/brno-podzim-pondeli/.
