@@ -20,6 +20,12 @@ Zápisky a materiály k výuce.
 13. Závěrečný projekt
 14. Závěrečný projekt, retrospektiva
 
+## Ukázkový kód
+
+Repositář obsahuje také několik málo ukázkových příkladů kódu.
+Ty najdete ve složce [examples](examples/).
+
+
 ## Kreativní programování / Software Art - ukázky
 
 ### Náhodný Slušný Čech
