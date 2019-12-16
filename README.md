@@ -12,7 +12,7 @@ Zápisky a materiály k výuce.
 5. [Kolekce - Ntice, Seznamy, Množiny](5/README.md)
 6. [Kolekce - Slovníky, některé další operace s kolekcemi](6/README.md)
 7. [Import modulu](7/README.md), [Procvicovani: program generujici hesla](examples/password-generator)
-8. Seznamy, N-tice
+8. [Objektově orientované programování: třídy, metody](8/README.md)
 9. Grafika
 10. Správa zdrojového kódu, Git, Větvení v Gitu, Github
 11. Slovníky, JSON, API
@@ -24,7 +24,6 @@ Zápisky a materiály k výuce.
 
 Repositář obsahuje také několik málo ukázkových příkladů kódu.
 Ty najdete ve složce [examples](examples/).
-
 
 ## Kreativní programování / Software Art - ukázky
 
