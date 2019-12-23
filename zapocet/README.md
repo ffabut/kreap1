@@ -9,13 +9,13 @@ Termínem pro zaslání je neděle 9. února 2020.
 V případě nejasností mi napište, rád zodpovím otázky, případně navedu k řešení.
 
 ## Úkol 1: Oprava kódu
-Ve složce [zapocet](zapocet) jsou nahrány 2 soubory obsahující rozbitý kód.
+Ve složce jsou nahrány 2 soubory obsahující rozbitý kód [broken-1.py](broken-1.py) a [broken-2.py](broken-2.py).
 Vaším úkolem je kód zprovoznit, dbejte přitom nejen na odstranění chyb, které Python vyhazuje, ale také na to, zda to celé dává smysl - plní kód skutečně to, co se od něj dle komentářů očekává?
 Vaše úpravy prosím komentujte přímo v kódu.
 
 ## Úkol 2: Vlastní program
 Druhým úkolem je napsání vašeho vlastního programu.
-Nemusí jít o nic složitého, ale bylo by ideální, aby program nějak užitečný, byl pro někoho teoreticky použitelný ([https://en.wikipedia.org/wiki/Minimum_viable_product](minimal viable product)).
+Nemusí jít o nic složitého, ale bylo by ideální, aby program nějak užitečný, byl pro někoho teoreticky použitelný ([minimal viable product](https://en.wikipedia.org/wiki/Minimum_viable_product)).
 Může jít například o textovou hru, generátor hesel/jmen/názvů výstav/textů, jednoduchého chatbota, interaktivní text (gamebook) nebo cokoliv jiného.
 Kreativní modifikace jsou vítány.
 

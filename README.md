@@ -20,6 +20,8 @@ Zápisky a materiály k výuce.
 13. Závěrečný projekt
 14. Závěrečný projekt, retrospektiva
 
+Zápočtový úkol: [informa zde](zapocet/README.md)
+
 ## Ukázkový kód
 
 Repositář obsahuje také několik málo ukázkových příkladů kódu.
