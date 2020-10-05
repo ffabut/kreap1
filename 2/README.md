@@ -27,11 +27,12 @@ Jaké má program vlastnosti, co umí?
    3. maže soubory
    4. zobrazuje grafiku či webové stránky
    5. return code - číselná hodnota, která řekne, zda program doběhl v pořádku nebo nikoliv
-2. VSTUP - program často zpracovává externí informace, jde o možnost jak měnit parametry programy po tom,co jsme jej spustili:
+2. VSTUP - program často zpracovává externí informace, jde o možnost jak měnit parametry programy po tom, co jsme jej spustili:
    1. vstup uživatele skrze příkazovou řádku
    2. textové či obrázkové soubory
    3. data z databáze
-   4. vstup uživatele skrz webové rozhraní - HTML formuláře atd.
+   4. data z webu
+   5. vstup uživatele skrz webové rozhraní - HTML formuláře atd.
 3. UKLÁDÁNÍ DAT - program si potřebuje "pamatovat" určité informace během svého běhu, může jít o:
    1. proměnné - dočasné uložiště platné během běhu programu, nebo jen v určitých jeho částech
    2. trvalejší úložiště - databáze, konfigurační soubory apod.
@@ -95,17 +96,32 @@ Funkci print můžeme volat i s více parametry (hodnotami v závorce oddělený
 print("Ahoj,", "světe!", "(česky)")
 ```
 
-Můžeme vypisovat i celá a desetinná čísla, či výsledky matematických operací:
+Nebo můžeme volat print bez parametru:
+
+```python
+print()
+```
+
+V tomto případě funkce `print()` vytiskne pouze prázdný řádek.
+Všimněme si také, že jsou stále potřeba závorky za jménem funkce - závorky Pythonu říkají, že jde o volání funkce.
+
+Pomocí funkce `print()` můžeme vypisovat nejen textové řetězce, ale i celá a desetinná čísla, hodnoty True/False a mnoho dalších - a navzájem je kombinovat (není třeba mít všechny parametry stejného typu).
+Funkce `print()` zvládne defacto vypsat téměř vše, co do ní pošleme.
+Můžeme jako parametr do funkce `print()` poslat i samotnou funkci print (bez závorek, aby nešlo o volání funkce, ale o funkci jako objekt.)
 
 ```python
 print(12)
 print(0.9)
-print(2+0.5)
+print(True)
+print(print)
+print(12, 0.9, True, "Ahoj", print)
 ```
 
+Poznámka: chceme-li vyjádřit čísla, nepíšeme je v uvozovkách.
+S uvozovkami by je python vyhodnotil jako řetězce.
+
 ---
-Všimněme si:
-- čísla nepíšeme v uvozovkách
+Otázky:
 - jaký je rozdíl mezi: `print("15")` a `print(15)`?
 
 ## Komentáře a čitelnost
@@ -123,6 +139,27 @@ Komentáře v Pythonu začínají křížkem/hashtagem #, vše na řádku za tí
 print("Ahoj, světe!")
 
 print("Ahoj, FaVU!") # A tady zdravíme FaVU
+```
+
+Více-řádkové komentáře v Pythonu neexistují, což je trochu nepraktické.
+Funkci více-řádkového komentáře, ale můžeme nahradit pomocí více-řádkového textového řetězce, který neuložíme do žádné proměnné.
+Python tak takový řetězec bude ignorovat.
+Příklad:
+
+```python
+retezec = """
+Toto je viceradkovy retezec,
+ktery jsme ulozili do promenne 'retezec'.
+python tak tento retezec neignoruje, ale zpracovava
+"""
+
+"""
+a toho je viceradkovy retezec,
+ktery do zadne promenne neukladame
+a tak ho python totalne ignoruje
+defacto jde o viceradkovy komentar
+"""
+
 ```
 
 ## Proměnné (ukládání dat)
@@ -143,7 +180,7 @@ print("jedna" + "dva")
 
 Všimněme si:
 - jména proměnných nepíšeme do uvozovek (python by je bral jako obyčejný textový řetězec)
-- jménem proměnné nesmí být klíčové slovo (if, elif, while, for, in a další), není dobré jim dávat ani jména standardních funkcí (print, input a podobně)
+- jménem proměnné nesmí být klíčové slovo (if, elif, while, for, in a další), není dobré jim dávat ani jména standardních funkcí (print, input a podobně) a datových typů (int, str, bool)- pak bychom si tyto funkce či datové typy "přepsali" novou hodnotou a už bychom je dál v programu nemohli používat...
 
 Dále platí, že jména proměnných:
 - musí začínat písmenem, nebo podtržítkem
@@ -168,6 +205,7 @@ Do proměnné můžeme přiřadit hodnotu jiné proměnné:
 ```python
 Prijmeni = "Ondrackova"
 prijmeni = Prijmeni
+
 jmeno = "Pavla"
 celeJmeno = jmeno + prijimeni
 print(celeJmeno)
@@ -182,15 +220,16 @@ Python by v takové případě nevěděl, jaká je její hodnota - mělo by to b
 
 ```python
 a = 10
-print(a + b)
+print(a + b) #zde dojde k chybě
 ```
 
 Pokud tento kód zkusíme spustit, vyskočí na nás chybová hláška: `NameError: name 'b' is not defined`.
 
 ### Datové typy
 
-Proměnné mohou obsahovat různé typy dat - zatím jsme se setkali s textovými řetězci, celými a desetinnými čísly, jde ale i logický (true/false) typ Boolean a mnoho dalších.
-Pokud si nejsme jistí, o jaký datový typ se jedná, můžeme použít funkci `type()`:
+Proměnné mohou obsahovat různé typy dat - zatím jsme se setkali s textovými řetězci, celými a desetinnými čísly.
+Můžeme použít ale i logický typ tzv. Boolean (true/false) a mnoho dalších.
+Pokud si nejsme jistí, jaký datový typ proměnná obsahuje, můžeme použít funkci `type()`:
 
 ```python
 jmeno = "Adam"
@@ -204,7 +243,7 @@ print(type(energie))
 print(type(happy))
 ```
 
-Těch základních však mnoho není:
+Těch základních datových typů však mnoho není:
 
 #### integer (zkráceně int) - celá čísla
 
@@ -295,7 +334,7 @@ print(10.0 ** 2.0) # mocnina - výsledek je float
 ##### Interakce float a integer
 
 Pythonu nevadí, pokud chceme dělat operace nad float a integer zaráz, umí si s tím poradit.
-Matematické operace tak jsou intuitivní, vše se chová podobně jako v normálním světě, kde také dokážeme v pohodě sečíst 10 a 5.5, případně 10.5 a 0.5.
+Matematické operace tak jsou intuitivní, vše se chová podobně jako v normálním světě, kde také dokážeme v pohodě sečíst 10 a 5.5, případně 10.5 a 5.
 Pokud se ve výpočtu objeví alespoň jeden float, je výsledek vždy float:
 
 ```python
@@ -334,14 +373,30 @@ jmenoStokrat = jmeno * 100
 print(jmenoStokrat)
 ```
 
+---
+**Úkol:**
+
+- Jak sečíst jméno a příjmení, aby mezi nimi byla mezera?
+
+```{python echo=FALSE}
+jmeno = "Marie"
+prijmeni = "Malinová"
+
+# do scitani muzeme pridat textovy retezec obsahujici mezeru: " "
+celeJmeno = jmeno + " " + prijmeni
+```
+---
+
 Další operace jako dělení, odčítání, mocnina a podobně nejsou se string možné.
 I v reálném životě bychom si je těžko představovali.
-Jaký by měl být výsledek `"Petr" / 2`?
+Jaký by měl být výsledek `"Petr"/2`?
 Těžko říct. A tak Python tyto operace nemá.
 
 #### boolean (zkráceně bool) - logické hodnoty True/False
 
 Typ boolean je logickým typem, může mít pouze dvě hodnoty - `True` nebo `False`.
+Boolean se hodí v případě, kdy chceme řídit tok programu a vyhovět několika podmínkám zaráz.
+Zadala uživatelka jméno A zadala email NEBO telefon?
 Základní operace s booleanem jsou definovány klíčovými slovy `and`, `or`  a `not`:
 
 ```python
@@ -364,16 +419,21 @@ print(not False) # =True
 ```
 
 ---
-Pro tip: Hodnota True v Pythonu odpovídá také hodnotě 1, hodnota False odpovídá také hodnotě 0.
+**Tip:**
+
+Hodnota True v Pythonu odpovídá také hodnotě 1, hodnota False odpovídá také hodnotě 0.
 Teoreticky můžeme dělat operace jako `1 + True`, což by se rovnalo 2.
 V praxi je to ale zbytečné.
 Nachytat by nás ale mohlo porovnávání `1 == True`, které je pravdivé, True se skutečně rovná 1, více v kapitole porovnávání hodnot.
+
+---
 
 #### NoneType
 
 NoneType je speciálním typem, který má pouze jednu hodnotu a tou je `None`, jeho významem je čisté nic - ani 0, ani False, ani prázdný řetězec, ale nic - `None`.
 Užívá se například v situaci, kdy chceme informovat o chybách - pokud se něco pokazí, vrátíme chybu, pokud vše proběhne v pořádku, vrátíme hodnotu `None`.
-K `None` se dostaneme později. 
+Více toho k `None` snad ani není a tak se jen později dostaneme k tomu, že na něj narazíme a začneme ho používat. 
+
 
 ### Porovnávání hodnot
 
@@ -449,6 +509,14 @@ print(5.0 <= 1) # =False
 print(5 <= 1.0) # =False
 ```
 
+---
+**Pozor**
+
+Větší/menší můžeme použít i pro porovnání délky textových řetězců.
+Nelze však porovnávat například textový řetězec a číslo. 
+
+---
+
 ### Prevody datovych typu 
 
 Občas je potřeba překonvertovat jeden datový typ do jiného, například převést řetězec `"2019"` na celé číslo.
@@ -495,7 +563,7 @@ a = input()
 a = "zadany text"
 ```
 
-## Úkol
+## Úkol 1
 
 Vytvořte program, který:
 - uživatelku poprosí o zadání jejího jména 
@@ -503,21 +571,19 @@ Vytvořte program, který:
 
 ### Řešení
 
-```python
-print("Hello, please enter your name and confirm with enter:")
+- [interactive-hello.py](interactive-hello.py)  
+- [interactive-hello-alternative.py](interactive-hello-alternative.py)
 
-jmeno = input() #zde program pocka na textovy vstup od uzivatelky
+## Úkol 2
 
-print("Hi, ", jmeno, "!") # využijeme toho, že print() umožňuje tisknout více parametrů/hodnot a vkládá mezi ně mezery
-```
+Vytvořte program, který pomůže s nějakou početní operací.
+Například:
+- zobrazení součtu, rozdílu, násobku a podílu dvou zadaných čísel (výsledek: [4cisla.py](4cisla.py))
+- počítadlo peněz za brigádu (výsledek: [brigada.py](brigada.py))
+- odhad plochy místnosti kvůli nákupu primalexu na instalaci výstavy
+- výpis zadaného jména tolikrát, kolikrát si uživatelka přeje3
 
-Alternativně můžeme pozdrav složit též sčítáním řetězců, může se hodit pokud nechceme mezeru mezi částmi textu:
+### Řešení
 
-```python
-print("Hello, please enter your name and confirm with enter:")
-
-jmeno = input() #zde program pocka na textovy vstup od uzivatelky
-
-print("Hi" + " " + name + "!") # sečteme jednotlivé řetězce a výsledek vytiskneme printem
-# všimněme si, že vlastně tiskneme jednu hodnotu - až výsledek sčítání řetězců
-```
+- 
+- [interactive-hello2.py](interactive-hello2.py)
