@@ -80,7 +80,7 @@ V Pythonu jde o jeden řádek používající standardní funkci `print()` (stan
 print("Hello, world!")
 ```
 
-Celý skript zde: [1/hello-world.py](hello-world.py).
+Celý skript zde: [hello-world.py](hello-world.py).
 
 ---
 Všimněme si:
@@ -378,13 +378,19 @@ print(jmenoStokrat)
 
 - Jak sečíst jméno a příjmení, aby mezi nimi byla mezera?
 
-```{python echo=FALSE}
+<details><summary>řešení</summary>
+<p>
+
+```python
 jmeno = "Marie"
 prijmeni = "Malinová"
 
 # do scitani muzeme pridat textovy retezec obsahujici mezeru: " "
 celeJmeno = jmeno + " " + prijmeni
 ```
+</p>
+</details>
+
 ---
 
 Další operace jako dělení, odčítání, mocnina a podobně nejsou se string možné.
@@ -581,9 +587,5 @@ Například:
 - zobrazení součtu, rozdílu, násobku a podílu dvou zadaných čísel (výsledek: [4cisla.py](4cisla.py))
 - počítadlo peněz za brigádu (výsledek: [brigada.py](brigada.py))
 - odhad plochy místnosti kvůli nákupu primalexu na instalaci výstavy
-- výpis zadaného jména tolikrát, kolikrát si uživatelka přeje3
-
-### Řešení
-
-- 
-- [interactive-hello2.py](interactive-hello2.py)
+- výpis zadaného jména tolikrát, kolikrát si uživatelka přeje
+  
