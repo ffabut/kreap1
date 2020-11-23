@@ -1,11 +1,7 @@
-# Odkazy 
+# Reference 
 
-### Kopírování kolekcí
-
-#### Úvod - obecně o objektech
-
-Jak jsme si rekli v predeslych hodinach: promenne (a obecne vsechny objekty) v Pythonu neobsahuji hodnoty primo, ale obsahuji pouze odkazy na tyto hodnoty v pameti.
-V pripade celych cisel a podobnych jednoduchych promennych to nedela problem, jelikoz odkazujeme na nemenny objekt, vse je tak relativne intuitivni:
+Promenne (a obecne vsechny objekty) v Pythonu neobsahuji hodnoty primo, ale obsahuji pouze reference na tyto hodnoty v pameti.
+V pripade celych cisel a podobnych jednoduchych datovych typů je to poměrně jednoduché, jelikoz odkazujeme na nemenny objekt, vse je tak relativne intuitivni:
 
 ```python
 x = 12    # promenna X ukazuje na cislo v pameti obsahujici cislo 12
@@ -35,14 +31,19 @@ x = 14    # X nove ukazuje na misto v pameti obsahujici 14, ale Y porad ukazuje 
 print(x, y) # vse je, jak bychom cekali
 ```
 
-Když napíšeme `x = 12` tak pouze říkáme: ať X ukazuje na 12.
-Prakticky to pak znamená, že X je 12.
+Když napíšeme `x = 14` tak pouze říkáme: ať proměnná `x` nově ukazuje na 14.
+Proměnná `b` ale pořád referuje na původní místo: na číslo 12.
+Vše se chová intuitivně a tak, jak bychom čekali.
+Co kdyby ale to, na co proměnná odkazuje bylo měnitelné?
+Například seznam nebo slovník?
+Pak se to začne trochu komplikovat...
 
-#### Odkazy v případě kolekcí
+## Reference v případě kolekcí
 
-Pokud ale vytvoříme proměnnou a do ní přiřadíme slovník, pak skrze proměnnou odkazujeme na měnitelný objekt.
+Pokud vytvoříme proměnnou a do ní přiřadíme měnitelnou kolekci, pak skrze proměnnou odkazujeme na měnitelný objekt.
 Co to znamená?
-Například to, že pokud změníme kolekci, pak bude změněna ve všech proměnných, které na ni odkazují.
+Hlavně to, že pokud změníme seznam či slovník, pak bude změněna ve všech proměnných, které na ni odkazují.
+
 Je to podobné jako když řekneme doma nebo na bytě a myslíme tím to stejné.
 Když uklidíme na bytě, pak bude uklizeno i doma:
 
@@ -75,9 +76,11 @@ byt = ["nic", "nic", "nic"] # přestěhování od rodičů na VŠ
 print(byt, doma) # proměnné nyní odkazují na dvě různá místa v paměti
 ```
 
-Přiřazení tedy nevytváří kopii kolekce(obejktu), ale pouze proměnnou, která odkazuje na stejné místo jako přiřazovaná proměnná.
+Přiřazení tedy nevytváří kopii měnitelné kolekce(objektu), ale pouze proměnnou, která odkazuje na stejné místo v paměti - na stejný seznam či slovník jako přiřazovaná proměnná.
 
-#### Mělká kopie
+Pokud 
+
+## Mělká kopie
 
 Chceme-li vytvořit skutečnou kopii kolekce, máme dvě možnosti: mělké nebo hluboké kopie.
 Začneme u mělké kopie: 
@@ -90,3 +93,23 @@ Začneme u mělké kopie:
 Stejně jako běžné proměnné a všechny objekty v Pythonu i kolekce neuchovávají hodnoty přímo, ale pouze na ně pouze odkazují.
 Kolekce jsou tedy jen určitým rozcestníkem, informujícím o tom, kde hledat výsledky.
 Pokud přiřadíme kolekci do nové proměnné, nezískáme defacto oddělenou kopii, ale pouze odkaz na tu stejnou kolekci:
+
+## Funkce id()
+
+Funkce `id()` nám umožňuje zjistit, na jakou část paměti daná proměnná odkazuje.
+``kazuje nikoli hodnotu uloženou v paměti, ale 
+
+## Operátor IS
+
+Pro zjištění, zda dvě proměnné odkazují na stejné místo v paměti, můžeme použít operátor `is`.
+Narozdíl od operátoru `==`, který porovnáva zda jsou hodnoty dvou objektů stejné,
+tak operátor `is` porovnává zda identity dvou objektů jsou stejné - tj. jestli odkazují na stejné místo v paměti.
+
+```python
+a = 12
+b = 12
+
+if a is b:
+  print("they refe")
+
+```

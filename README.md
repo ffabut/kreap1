@@ -13,7 +13,7 @@ Zápisky a materiály k výuce.
 6. [Kolekce - Slovníky, některé další operace s kolekcemi](6/README.md)
 7. [Import modulu](7/README.md), [Procvicovani: program generujici hesla](examples/password-generator)
 8. [Objektově orientované programování: třídy, metody](8/README.md)
-9. Grafika
+9. [Reference](9/README.md)
 10. Správa zdrojového kódu, Git, Větvení v Gitu, Github
 11. Slovníky, JSON, API
 12. Třídy, Dědičnost
