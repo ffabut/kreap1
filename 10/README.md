@@ -158,7 +158,8 @@ with open("mujSoubor.txt", "rt") as f:
     print(line)
   #nemusime volat f.close() o to se postara WITH AS statement
 
-#zde jiz promenna f nebude dostupna, nastane chyba
+# promenna F je sice dostupná, ale jiz jde o closed file object, který nezabírá tolik místa
+# nelze z něj číst ani psát, defacto je nepoužitelný
 print(f)
 ```
 
@@ -176,5 +177,4 @@ with open("mujSoubor.txt", "w") as f:
 with open("mujSoubor.txt", "r") as f:
   for line in f:
     print(line)
-
 ```
