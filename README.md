@@ -14,11 +14,8 @@ Zápisky a materiály k výuce.
 7. [Import modulu](7/README.md), [Procvicovani: program generujici hesla](examples/password-generator)
 8. [Objektově orientované programování: třídy, metody](8/README.md)
 9. [Reference, modul copy, mělké a hluboké kopie, funkce copy a deepcopy](9/README.md)
-10. Správa zdrojového kódu, Git, Větvení v Gitu, Github
-11. Slovníky, JSON, API
-12. Třídy, Dědičnost
-13. Závěrečný projekt
-14. Závěrečný projekt, retrospektiva
+10. [Absolutní a relativní cesty, práce se soubory - čtení a zápis](10/README.md)
+11. [Další built-in moduly, debug mode v IDLE](11/README.md)
 
 Zápočtový úkol: [informace zde](zapocet/README.md)
 
