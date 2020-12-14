@@ -11,7 +11,7 @@ def soucet(a,b):
 levels = input("Kolik chcete hrát levelů?")
 correct = 0
 
-for x in range(levels): # kolik je levelů, tolikrát se zeptáme range() generuje seznam [0,1,2..]
+for x in range(levels): # kolik je levelů, tolikrát se zeptáme - range() generuje iterátor 0,1,2...
     a = random.randint(1,999)
     b = random.randint(1,999)
 

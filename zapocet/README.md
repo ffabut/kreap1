@@ -1,17 +1,17 @@
 # Zápočet
-K zápočtu v ZS 2019/2020 je potřeba splnit 2 úkoly.
+K zápočtu v ZS 2020/2021 je potřeba splnit 2 úkoly.
 
-1. opravit 2 soubory s rozbitým kódem
+1. opravit 3 soubory s rozbitým kódem (broken-1.py, broken-2.py, broken-3.py)
 2. naprogramovat vlastní jednoduchý program
 
-Upravené soubory prosím zašlete v příloze emailu na adresu `andreas.gajdosik@gmail.com`, jako předmět uveďte zkratku předmětu, tedy `KREAP1`.
-Termínem pro zaslání je neděle 9. února 2020.
+Upravené soubory a vlastní program prosím zašlete v příloze emailu na adresu `andreas.gajdosik@gmail.com`, jako předmět uveďte zkratku předmětu, tedy `KREAP1`.
+Termínem pro zaslání je neděle 31. ledna 2021.
 V případě nejasností mi napište, rád zodpovím otázky, případně navedu k řešení.
 
 ## Úkol 1: Oprava kódu
-Ve složce jsou nahrány 2 soubory obsahující rozbitý kód [broken-1.py](broken-1.py) a [broken-2.py](broken-2.py).
-Vaším úkolem je kód zprovoznit, dbejte přitom nejen na odstranění chyb, které Python vyhazuje, ale také na to, zda to celé dává smysl - plní kód skutečně to, co se od něj dle komentářů očekává?
-Vaše úpravy prosím komentujte přímo v kódu.
+Ve složce jsou nahrány 3 soubory obsahující rozbitý kód [broken-1.py](broken-1.py), [broken-2.py](broken-2.py) a [broken-3.py](broken-3.py).
+Vaším úkolem je zprovoznit alespoň 2 ze 3 rozbitých kódů, dbejte přitom nejen na odstranění chyb, které Python vyhazuje, ale také na to, zda to celé dává smysl - plní kód skutečně to, co se od něj dle komentářů očekává?
+Vaše úpravy prosím ideálně komentujte přímo v kódu.
 
 ## Úkol 2: Vlastní program
 Druhým úkolem je napsání vašeho vlastního programu.
