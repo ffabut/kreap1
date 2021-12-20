@@ -1,11 +1,11 @@
 # Zápočet
-K zápočtu v ZS 2020/2021 je potřeba splnit 2 úkoly.
+K zápočtu v ZS 2021/2022 je potřeba splnit 2 úkoly.
 
 1. opravit 3 soubory s rozbitým kódem (broken-1.py, broken-2.py, broken-3.py)
 2. naprogramovat vlastní jednoduchý program
 
 Upravené soubory a vlastní program prosím zašlete v příloze emailu na adresu `andreas.gajdosik@gmail.com`, jako předmět uveďte zkratku předmětu, tedy `KREAP1`.
-Termínem pro zaslání je neděle 31. ledna 2021.
+Termínem pro zaslání je pondělí 31. ledna 2021.
 V případě nejasností mi napište, rád zodpovím otázky, případně navedu k řešení.
 
 ## Úkol 1: Oprava kódu
