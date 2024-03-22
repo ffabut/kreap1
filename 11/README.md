@@ -116,9 +116,9 @@ class FriendCMD(cmd.Cmd):
 
   def do_joke(self, arg):
     'Friend tells you a joke.'
-    print("Víš, jak se zdraví členky a členové židovské obce v Ostravě?")
+    print("Měli jsme u nás v práci kapitalistu.")
     time.sleep(3)
-    print("Shalom, pyčo!")
+    print("Nikdo ho nikdy neviděl pracovat.")
 
   def do_support(self, arg):
     'Friend tries to support you.' #dokumentační řetězec metody slouží zároveň jako nápověda pro uživatele
