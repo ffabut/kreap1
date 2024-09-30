@@ -47,7 +47,7 @@ Pojďme na to.
 
 Postup pro vytvoření skriptu je následující:
 1. otevřít IDLE, případně http://repl.it
-2. skrze ně vytvořit nový soubor `main.py`
+2. skrze ně vytvořit nový soubor, např.: `main.py`
 3. napsat kód a uložit jej
 4. spustit kód
    1. v IDLE - v menu záložka `Run - Run Module`, případně klávesou F5
@@ -63,7 +63,7 @@ python3 main.py
 ---
 
 Poznámka: je možné a leckdy i žádoucí skript pojmenovat i jinak než `main.py`, například `mujserver.py` či `sendmail.py`.
-V případě, že píšeme složitější projekt, je zvykem, že `main.py` je určitým vstupním, prvotním skriptem, který importuje všechny ostatní.
+V případě, že píšeme složitější projekt, je zvykem, že `main.py` (případně název našeho projektu tečka py) je určitým vstupním, prvotním skriptem, který importuje všechny ostatní.
 
 ---
 
@@ -159,14 +159,46 @@ ktery do zadne promenne neukladame
 a tak ho python totalne ignoruje
 defacto jde o viceradkovy komentar
 """
-
 ```
 
-## Proměnné (ukládání dat)
+### Docstrings
+Docstrings neboli dokumentační řetězce - jsou komentáře ve speciálním formátu, který IDLE a jiné IDEs (integrated development environment) rozpoznají a zapracují do svého grafického rozhraní.
+Funkce a třídy okomentované docstring nám pak zobrazí rovnou s docstringem jako mini-návodem, jak funkci, objekt použít.
 
-Občas je vhodné si výsledek či hodnotu "uložit".
+Funkce a třídy můžeme anotovat pomocí více řádkových komentářů za definicí funkce:
+```python
+def complex(real=0.0, imag=0.0):
+    """Form a complex number.
+
+    Keyword arguments:
+    real -- the real part (default 0.0)
+    imag -- the imaginary part (default 0.0)
+    """
+    if imag == 0.0 and real == 0.0:
+        return complex_zero
+    ...
+
+class Dragon():
+   """Třída fantastické bytosti draka. Umí chrlit oheň."""
+   def FireBreath(self):
+      """Docstring můžou mít i metody (funkce v rámci) třídy."""
+      print("Chrlím oheň!")
+   ...
+```
+
+Více informací o docstrings v [PEP-257](https://peps.python.org/pep-0257/).
+
+
+## Proměnné (ukládání dat)
+Při běhu programu často potřebujeme dočasně uložit data a později se k nim dostat.
 K tomuto účelu slouží v programování proměnné.
-V Pythonu narozdíl od některých jazyků nemusíme předem definovat, jaký typ dat do proměnné uložíme (textový řetězec, celé číslo, desetinné apod.).
+
+Proměnná je označení pro identifikátor (symbolické jméno), který uchovává určitou informaci (data) při běhu programu.
+Proměnná může nabývat známých nebo neznámých informací, které se nazývají hodnota.
+Jméno proměnné je obvyklá cesta k získání reference k hodnotě uložené někde v paměti počítače.
+Separace jména a obsahu umožňuje použít jméno, které se používá nezávisle na přenesené informaci, kterou zastupuje.
+
+Jelikož je Python dynamicky typovaný, tak narozdíl od jiných staticky typovaných jazyků (např. C, C++, Go, Rust) nemusíme předem definovat, jaký typ dat do proměnné uložíme (textový řetězec, celé číslo, desetinné apod.).
 Jednoduše napíšeme název proměnné a pak jí přiřadíme hodnotu pomocí znaménka rovná-se =.
 Hodnota vpravo se ukládá do hodnoty vlevo, například:
 
@@ -207,7 +239,7 @@ Prijmeni = "Ondrackova"
 prijmeni = Prijmeni
 
 jmeno = "Pavla"
-celeJmeno = jmeno + prijimeni
+celeJmeno = jmeno + prijmeni
 print(celeJmeno)
 ```
 
@@ -588,4 +620,3 @@ Například:
 - počítadlo peněz za brigádu (výsledek: [brigada.py](brigada.py))
 - odhad plochy místnosti kvůli nákupu primalexu na instalaci výstavy
 - výpis zadaného jména tolikrát, kolikrát si uživatelka přeje
-  
