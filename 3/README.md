@@ -356,14 +356,38 @@ Nápověda: Může se vám hodit for proměnná, loop a podmínka.
 ## Další řízení
 
 Zde již můžeme skončit, avšak pro úplnost Python obsahuje ještě pár další konstrukcí, jak řídit běh programu.
+Try-except se nám bude hodit někdy v budoucnu, ale match je možné skoro až vynechat.
 
 ### Try-Except
 
 Slouží pro spuštění kódu, který může dopadnout Exception (výjimkou, errorem).
 V případě že v bloku try dojde k výjimce, kód přeskočí do části except.
+V základní podobě můžeme psát:
 
 ```python
+a = int(input("Zadejte cislo 0 az 10"))
+try:
+    vysledek = 100/a
+    print(f"100/{a}={vysledek}")
+except:
+  print("Something went wrong")
+```
 
+V bloku except ale můžeme "chytit" výjimku a pak ji třeba moct vypsat, abysme měli info o tom, co se vlastně pokazilo:
+```python
+a = int(input("Zadejte cislo 0 az 10"))
+try:
+    vysledek = 100/a
+    print(f"100/{a}={vysledek}")
+except Exception as e:
+  print("Something went wrong:", e)
+```
+
+Block try-except můžeme také rozšířit o else, který se provede v případě, že bylo vše ok.
+A blok finally, který se provede ve všech případech, ať už se stala výjimka nebo vše proběhlo správně.
+Oboje se ale používá spíše méně často.
+
+```python
 a = int(input("Zadejte cislo 0 az 10"))
 try:
     vysledek = 100/a
@@ -375,6 +399,8 @@ else:
 finally:
   print("The try...except block is finished")
 ```
+
+Více k exception handlingu a try-except: https://docs.python.org/3/tutorial/errors.html#handling-exceptions.
 
 ### Match
 
@@ -395,3 +421,5 @@ match status:
     case _:
         print("Something's wrong with the internet")
 ```
+
+Více k match na: https://docs.python.org/3/tutorial/controlflow.html#tut-match
