@@ -1,14 +1,17 @@
 # Lekce 3
 
 Tato lekce se zaměří na téma větvení programu - řízení toku programu, tedy schopnost programu reagovat na různé situace různými způsoby.
-Základními nástroji pro řízení toku programu jsou podmínky (IF) a cykly (WHILE, FOR).
+Základními nástroji pro řízení toku programu jsou:
+- podmínky (IF)
+- cykly (WHILE, FOR).
 
 ## Podmínky
 
-Podmínky umožňují vykonat určité části kódů pouze v případě, když platí logická podmínka - například větší než, nebo rovno.
+Podmínky umožňují vykonat určité části kódů (blok kódu) pouze v případě, když platí určitá logická podmínka - například větší než, nebo rovno, případně pokud použitá proměnná má hodnotu True.
 
 ### Jednoduchá podmínka IF
-Nejjednodušeji podoba podmínky užívá jedno klíčové slovo `IF`.
+Nejjednodušeji podoba podmínky užívá jedno klíčové slovo `if`.
+
 
 ```python
 cislo = 120
@@ -22,10 +25,23 @@ if cislo > 10: # vyraz cislo>10 vraci hodnoty True nebo False, pokud vrati True,
 print("jedem dál...")
 ```
 
+případně můžeme též použít například:
+
+```python
+cislo = 120
+vetsi_nez = cislo > 10 # vyraz vrati True
+if vetsi_nez: # pokud vetsi_nez je True (v tomto pripade ano), vykona se odsazena cast kodu
+    print("cislo je vetsi nez 10!")
+    print("a to je dobre")
+
+# zde jiz pokracuje program za vsech okolnosti
+print("jedem dál...")
+```
+
 Všimněme si odsazení bloku následujícího po dvojtečce.
 
-Syntax `IF` vypadá takto:
-- začneme klíčovým slovem IF
+Syntax `if` vypadá takto:
+- začneme klíčovým slovem if
 - za něj umístíme libovolný logický výraz
 - ukončíme dvojtečkou - tím určíme, že chceme pokračovat sadou/blokem příkazů na dalším řádku
 - na dalším řádku odsadíme kód o 4 mezery (případně jiný počet, ale vždy stejný)
@@ -154,7 +170,7 @@ Cykly nám umožňují několikrát opakovat určitou stejnou část kódu.
 
 ### Cyklus While
 
-Cyklus `while` opakuje kód, dokud je podmínka cykly pravdivá:
+Cyklus `while` opakuje kód, dokud je podmínka cyklu pravdivá:
 
 ```python
 i = 0
@@ -165,6 +181,11 @@ while i < 100: # pokud je podmínka pravdivá, cyklys while vykoná všechny př
 
 print("a to je vse...") # kdyz podminka neni pravdiva, cyklus se ukonci a program pokracuje dal v kodu
 ```
+
+Mohli bychom říct, že cyklus `while` je tak trochu podmínka, která se opakuje dokud nepřestane platit.
+To je také drobný zádrhel při použití cyklu `while` - musíme si dát pozor, aby podmínka někdy přestala platit - často v rámci cyklu upravujeme nějakou proměnnou, která je součástí podmínky.
+Pokud si nadáme pozor, může cyklus běžet donekonečna, což tedy někdy může být také záměr - zkuste to v příkladu č. 3 níže.
+
 
 ---
 Úkol 3: Napiště program, který bude postupně počítat do nekonečna.
@@ -331,3 +352,46 @@ Nápověda: Může se vám hodit nekonečný cyklus while, podmínka a break.
 Nemusíte řešit diakritiku a velká písmena.
 Nápověda: Může se vám hodit for proměnná, loop a podmínka.
 (Řešení pro kontrolu [zde](ukol5.py).)
+
+## Další řízení
+
+Zde již můžeme skončit, avšak pro úplnost Python obsahuje ještě pár další konstrukcí, jak řídit běh programu.
+
+### Try-Except
+
+Slouží pro spuštění kódu, který může dopadnout Exception (výjimkou, errorem).
+V případě že v bloku try dojde k výjimce, kód přeskočí do části except.
+
+```python
+
+a = int(input("Zadejte cislo 0 az 10"))
+try:
+    vysledek = 100/a
+    print(f"100/{a}={vysledek}")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+finally:
+  print("The try...except block is finished")
+```
+
+### Match
+
+Match je podobný statementu switch v jiných jazycích a v Pythonu je poměrně málo využívaný.
+Ale pokud byste jej někdy někde viděli, jeho podoba je:
+
+```python
+status = 400
+match status:
+    case 200:
+        print("OK!")
+    case 400:
+        print("Bad request")
+    case 404:
+        print("Not found")
+    case 418:
+        print("I'm a teapot")
+    case _:
+        print("Something's wrong with the internet")
+```
