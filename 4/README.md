@@ -87,8 +87,12 @@ Některé z nich již známe:
 - abs() - absolutní hodnota
 - pow() - mocnina
 - round() - zaokrouhlení
+- type() - výpis datového typu proměnné/hodnoty
+- reversed() - otočení kolekce/iterátoru
+
 
 Python obsahuje i velké množství dalších užitečných built-in funkcí, ke kterým se dostaneme později - souvisejí s pozdějšími tématy.
+Můžete se na ně podívat však i nyní v dokumentaci Pythonu: https://docs.python.org/3/library/functions.html
 
 ### Vlastní funkce
 
@@ -112,7 +116,7 @@ Tato funkce nemá žádné argumenty a nevrací žádnou hodnotu.
 Její poslání je pouze tisknout předem připravený text.
 Jak bychom ji mohli rozšířit, aby tiskla námi zadaný text?
 
-#### Definování argumentů funkce
+#### Definování parametrů funkce
 
 Chceme-li, aby funkce přijímala nějaký argument, stačí jeho jméno uvést v závorkách při definici funkce:
 
@@ -178,6 +182,37 @@ def collectiveHello(name1="user", name2="user", name3): #name3 nema defaultni ho
 collectiveHello("Jane")
 collectiveHello("Mustafa", "Jane")
 collectiveHello("John", "Jane", "Ian")
+```
+
+##### Nekonečné množství argumentů
+Pokročilé: Občas se nám může hodit funkce, která umí přijímat neomezené množství argumentů.
+Jednu takovou funkci již známe - ano, je to print().
+Jak podobné chování můžeme realizovat?
+
+```python
+def greet(*names):
+    for name in names:
+        print("Hello", name)
+
+greet("Jane", "Patrick", "Olia", "Michael")
+```
+
+##### Nekonečné množství pojmenovaných argumentů
+Pokročilé: Může se nám také hodit mít funkci, do které můžeme poslat větší množství pojmenovaných parametrů.
+Například pro detailní konfiguraci funkce, nebo argumenty potřebují jak hodnotu, tak i klíč/key neboli jméno argumentu.
+Jde vlastně o neomezené množství pojmenovaných argumentů.
+
+To můžeme realizovat pomocí **kwargs:
+
+```python
+def myfunc(**kwargs):
+    # kwargs is a dictionary.
+    for k,v in kwargs.iteritems():
+         print(f"jmeno argumentu={k}: hodnota={v}")
+
+myfunc(abc=123, efh=456)
+# jmeno argumentu=abc: hodnota=123"
+# jmeno argumentu=efh: hodnota=456"
 ```
 
 #### Návratová hodnota funkce
