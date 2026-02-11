@@ -138,7 +138,7 @@ print(f"START!", end="\r", flush=True)
 
 Poznamka: "\r" nebo carriage return nefunguje v IDLE, je potřeba náš program spustit v terminálu, PowerShellu, nebo v jiném prostředí příkazové řádky, které tento znak podporuje. 
 Pro víceřádkové výstupy je namísto "\r" vhodnější použít několikrát za sebou posun kurzoru na začátek předchozího řádku - `"\033[F"` (https://en.wikipedia.org/wiki/ANSI_escape_code#Control_Sequence_Introducer_commands).
-Pro podrobnější vysvětlení se podívejte na příklady [examples/premazavani_textu](examples/premazavani_textu).
+Pro podrobnější vysvětlení se podívejte na příklady [examples/premazavani_textu](../examples/premazavani_textu).
 
 ### Built-in funkce
 
