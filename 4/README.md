@@ -284,7 +284,7 @@ To můžeme realizovat pomocí **kwargs:
 ```python
 def myfunc(**kwargs):
     # kwargs is a dictionary.
-    for k,v in kwargs.iteritems():
+    for k,v in kwargs.items():
          print(f"jmeno argumentu={k}: hodnota={v}")
 
 myfunc(abc=123, efh=456)
