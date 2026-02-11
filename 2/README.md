@@ -642,8 +642,20 @@ Vytvořte program, který:
 
 ## Úkol 2
 
-Vytvořte program, který pomůže s nějakou početní operací.
-Například:
+Vytvořte program, který spočítá dlouhodobou spotřebu kávy.
+
+Program:
+- zeptá se uživatelestva, kolik šálků kávy (espresso) vypije denně,
+- spočítá, kolik šálků vypije za rok,
+- spočítá spotřebu za 10 let,
+- odhadne, kolik gramů kávy se na tato espressa (7g kafe) spotřebuje,
+- spočítá, kolik miligramů čistého kofeinu uživatelstvo za 10 let přijme (espresso ~ 63mg kofeinu).
+
+Řešení: [kafe.py](kafe.py)
+
+## Úkol 3
+
+Vytvořte program, který pomůže s nějakou z následujících početních operací:
 - zobrazení součtu, rozdílu, násobku a podílu dvou zadaných čísel (výsledek: [4cisla.py](4cisla.py))
 - počítadlo peněz za brigádu (výsledek: [brigada.py](brigada.py))
 - odhad plochy místnosti kvůli nákupu primalexu na instalaci výstavy
