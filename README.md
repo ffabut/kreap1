@@ -61,7 +61,7 @@ Napsáno v Pearlu, kód je dostupný na: https://github.com/coryarcangel/Pizza-P
 
 Reject Me z roku 2005 od neznámé autorky pomáhal svým uživatelům udržet své místo na pracovním úřadě v GB.
 A to tím, že umožňoval generovat falešné zprávy o odmítnutí uchazeče z pracovního konkurzu.
-Více o programu je možné najít na: http://runme.org/project/+rejectme/?fbclid=IwAR256N0RECFkB7rL9mInVwGgnQpkf-ankrErDbVAEZExZBwIHBVLYW3A85E.
+Více o programu je možné najít na: http://runme.org/project/+rejectme.
 
 ## Další zdroje pro studium
 
