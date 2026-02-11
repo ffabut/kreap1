@@ -4,7 +4,6 @@ Tento program stahuje vsechny obrazky ze zadane webove adresy.
 
 import requests
 from bs4 import BeautifulSoup
-import tldextract
 
 
 server = "https://midi.cz" # url z niz stahovat obrazky
