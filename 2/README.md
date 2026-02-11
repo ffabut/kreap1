@@ -86,6 +86,12 @@ Celý skript zde: [hello-world.py](hello-world.py).
 Všimněme si:
 - pozdrav jakožto text je psán v uvozovkách (dvojice jednoduchých '' či složených "") - bez nich by python nepoznal, že myslíme text/textový řetězec a nikoliv třeba další kód
 
+---
+Úkol: Upravte Hello World tak, aby vypsal pozdrav na dva řádky, na druhém řádku byl text: "Welcome to Python!"
+Můžeme volat funkci dvakrát po sobě?
+
+Řešení: [hello-world-and-welcome.py](hello-world-and-welcome.py)
+
 ## Funkce Print (výstup)
 
 Funkce print(), kterou jsme před chvílí použili je jednou z nejpraktičtějších funkcí - s ní můžeme komunikovat s uživatelem, ale i vypisovat určité hodnoty během běhu programu a zjišťovat tak, zda vše běží jak má, nebo hledat, kde máme chybu - debugovat.
@@ -105,6 +111,8 @@ print()
 V tomto případě funkce `print()` vytiskne pouze prázdný řádek.
 Všimněme si také, že jsou stále potřeba závorky za jménem funkce - závorky Pythonu říkají, že jde o volání funkce.
 
+---
+
 Pomocí funkce `print()` můžeme vypisovat nejen textové řetězce, ale i celá a desetinná čísla, hodnoty True/False a mnoho dalších - a navzájem je kombinovat (není třeba mít všechny parametry stejného typu).
 Funkce `print()` zvládne defacto vypsat téměř vše, co do ní pošleme.
 Můžeme jako parametr do funkce `print()` poslat i samotnou funkci print (bez závorek, aby nešlo o volání funkce, ale o funkci jako objekt.)
@@ -119,6 +127,11 @@ print(12, 0.9, True, "Ahoj", print)
 
 Poznámka: chceme-li vyjádřit čísla, nepíšeme je v uvozovkách.
 S uvozovkami by je python vyhodnotil jako řetězce.
+
+Úkol: Vypište pomocí jedné funkce print() své jméno, věk a město, věk zadejte jako číslo nikoliv jako součást textového řetězce, například: `Ahoj, jmenuji se Nikola, je mi 28 let a bydlím v Praze.`
+Zkuste nepoužívat jeden dlouhý řetězec, ani spojování řetězců pomocí +, ale více parametrů oddělených čárkou.
+
+Řešení: [print-multiple-params.py](print-multiple-params.py)
 
 ---
 Otázky:
@@ -163,7 +176,7 @@ defacto jde o viceradkovy komentar
 
 ### Docstrings
 Docstrings neboli dokumentační řetězce - jsou komentáře ve speciálním formátu, který IDLE a jiné IDEs (integrated development environment) rozpoznají a zapracují do svého grafického rozhraní.
-Funkce a třídy okomentované docstring nám pak zobrazí rovnou s docstringem jako mini-návodem, jak funkci, objekt použít.
+Funkce a třídy okomentované docstring nám pak zobrazí rovnou s docstringem jako mini-návodem, jak funkci nebo objekt použít.
 
 Funkce a třídy můžeme anotovat pomocí více řádkových komentářů za definicí funkce:
 ```python
@@ -195,7 +208,7 @@ K tomuto účelu slouží v programování proměnné.
 
 Proměnná je označení pro identifikátor (symbolické jméno), který uchovává určitou informaci (data) při běhu programu.
 Proměnná může nabývat známých nebo neznámých informací, které se nazývají hodnota.
-Jméno proměnné je obvyklá cesta k získání reference k hodnotě uložené někde v paměti počítače.
+Jméno proměnné je obvyklá cesta k získání reference k hodnotě uložené někde v operační paměti počítače.
 Separace jména a obsahu umožňuje použít jméno, které se používá nezávisle na přenesené informaci, kterou zastupuje.
 
 Jelikož je Python dynamicky typovaný, tak narozdíl od jiných staticky typovaných jazyků (např. C, C++, Go, Rust) nemusíme předem definovat, jaký typ dat do proměnné uložíme (textový řetězec, celé číslo, desetinné apod.).
@@ -212,7 +225,8 @@ print("jedna" + "dva")
 
 Všimněme si:
 - jména proměnných nepíšeme do uvozovek (python by je bral jako obyčejný textový řetězec)
-- jménem proměnné nesmí být klíčové slovo (if, elif, while, for, in a další), není dobré jim dávat ani jména standardních funkcí (print, input a podobně) a datových typů (int, str, bool)- pak bychom si tyto funkce či datové typy "přepsali" novou hodnotou a už bychom je dál v programu nemohli používat...
+- jménem proměnné nesmí být klíčové slovo (if, elif, while, for, in a další)
+- jménem proměnné je lepší nedávat ani jména standardních funkcí (print, input a podobně) a datových typů (int, str, bool)- pak bychom si tyto funkce či datové typy "přepsali" novou hodnotou a už bychom je dál v programu nemohli používat...
 
 Dále platí, že jména proměnných:
 - musí začínat písmenem, nebo podtržítkem
@@ -221,7 +235,8 @@ Dále platí, že jména proměnných:
 
 ---
 
-Obsah proměnné můžeme měnit, dokonce můžeme měnit datový typ, který je v proměnné uložen:
+Obsah proměnné můžeme měnit.
+Jelikož je Python dynamicky typovaný programovací jazyk, tak dokonce můžeme měnit datový typ, který je v proměnné uložen:
 
 ```python
 rocnik = 1
@@ -330,6 +345,19 @@ print(squared)
 print(5 ** 2)
 print(5 ** 3)
 ```
+
+<details>
+<summary>
+Úkol: Zjistěte pomocí operátoru %, zda je číslo dělitelné 24.
+</summary>
+
+```python
+frames = 127938
+zbytek = frames % 24
+print("Mame extra", zbytek, "frames, ktere se nevejdou do celých sekund.")
+```
+
+</details>
 
 #### float (float) - čísla pohyblivou desetinnou čárkou
 
