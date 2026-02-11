@@ -117,6 +117,29 @@ Funkce `print()` je také dobrým příkladem funkce, která zvládne různé da
 Pro některé funkce dává smysl očekávat pouze určitý datový typ argumentu, jiné mohou akceptovat několik různých datových typů pro argument, pro jiné funkce je to jedno, a fungují s různými datovými typy.
 To hodně záleží na konkrétní funkci, a je to opět něco, co se dozvíme z dokumentace, nebo zkoumáním kódu funkce.
 
+---
+Až doposud jsme argumenty funkce určovali pouze jejich pořadím, ale některé funkce nám umožňují určit argumenty i jejich jménem.
+
+To si můžeme ukázat na funkci `print()` a jejích extra argumentech `end` a `flush`.
+Argument `end` nám umožňuje určit, jaký text se má vytisknout na konci výstupu, pokud tento argument nezadáme, pak je defaultně použit nový řádek (`"\n"`).
+Argument `flush` nám umožňuje určit, zda se má výstup okamžitě zobrazit, nebo ne - defaultně je nastaveno na `False`, což znamená, že se výstup nemusí zobrazit okamžitě, ale až později, například až když se naplní buffer.
+
+```python
+import time
+
+print(f"TRI", end="\r", flush=True)
+time.sleep(1)
+print(f"DVA", end="\r", flush=True) # \r nám umožňuje přepsat předchozí výstup, takže se predchozi text "TRI" prepise textem "DVA"
+time.sleep(1)
+print(f"JEDNA", end="\r", flush=True)
+time.sleep(1)
+print(f"START!", end="\r", flush=True) 
+```
+
+Poznamka: "\r" nebo carriage return nefunguje v IDLE, je potřeba náš program spustit v terminálu, PowerShellu, nebo v jiném prostředí příkazové řádky, které tento znak podporuje. 
+Pro víceřádkové výstupy je namísto "\r" vhodnější použít několikrát za sebou posun kurzoru na začátek předchozího řádku - `"\033[F"` (https://en.wikipedia.org/wiki/ANSI_escape_code#Control_Sequence_Introducer_commands).
+Pro podrobnější vysvětlení se podívejte na příklady [examples/premazavani_textu](examples/premazavani_textu).
+
 ### Built-in funkce
 
 Python obsahuje předdefinované, built-in funkce, které můžeme rovnou použít.
