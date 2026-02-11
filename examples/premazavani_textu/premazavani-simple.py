@@ -1,6 +1,7 @@
 ### Jednoduche premazavani jednoho radku v konzoli
 # skript vykazuje dojem, ze se text animuje na miste
 # ve skutecnosti neustale pretiskujeme ten samy jeden radek
+# POZOR: premazavani nefunguje v IDLE, ale funguje v terminalu, powershellu, VS Code atd.
 
 import time
 
