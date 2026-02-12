@@ -1,20 +1,70 @@
 # Lekce 2
 
+## Stručná historie programovacích jazyků
+
+Počítače ve své podstatě rozumí pouze velmi jednoduchým instrukcím ve formě strojového (binárního) kódu — tedy posloupnostem nul a jedniček.
+Tento kód je závislý na konkrétní architektuře procesoru (CPU) a často také na operačním systému, protože využívá jeho služby (práce se soubory, okna, síť apod.).
+Psát programy pro počítače přímo ve strojovém kódu je tak pro člověka extrémně složité.
+V počátcích výpočetní techniky v 40. a 50. letech se však takto psalo, a to i poměrně složité programy, jelikož zkrátka nebylo na výběr.
+
+Between 1942 and 1945, Konrad Zuse developed Plankalkül ("plan calculus"), the first high-level language for a computer, for which he envisioned a Planfertigungsgerät ("plan assembly device"), which would automatically translate the mathematical formulation of a program into machine-readable punched film stock.[1] However, the first actual compiler for the language was implemented only decades later. 
+
+Souběžně s tím se však objevovaly snahy tento proces zjednošit.
+Mezi lety 1942 a 1945 Konrad Zuse přišel v nacistickém Německu s konceptem jazyka Plankalkül ("plan calculus"), prvního high-level programovací jazyk pro počítač, plánovaného pro jeho počítače Z3 a později Z4.
+Pro něj si představoval Planfertigungsgerät ("plan assembly device"), který by automaticky překládal matematické formulace programu do strojově čitelného děrovaného filmového pásu.
+Implementace tohoto konceptu však přišla až v roce 2000, kdy byl vytvořen Plankalkül-Compiler v rámci projektu na FU Berlin.
+
+Autorkou prvního reálně implementovaného kompilátoru/překladače byla americká počítačová vědkyně a matematička Grace Hopper, jež mezi lety 1951 a 1952 napsala její kompilátor "A-0 system" pro počítač ENIAC.
+Současně s tím také zavedla samotný termín "compiler" - česky kompilátor či překladač.
+Její koncepce překladače, který umožňoval psát kód v srozumitelnější formě, která byla pro člověka snazší na psaní i čtení, a následně tento lidský kód překládal do strojového kódu, kterému počítač rozumí, se ukázal jako fungující. 
+Kompilátory od té doby můžeme vnímat jako překladatele mezi lidskou řečí a strojovým kódem.
+
+Forma překladu se však velmi liší na základě konkrétního programovacího jazyka, jeho filozofie, účelu i historického kontextu, ve kterém vznikl.
+Jedním z nejstarších jazyků s kompilátorem je Assembler, který vznikl v 50. letech 20. století a umožňoval psát kód pomocí krátkých textových instrukcí místo čísel.
+Byl velkým krokem vpřed k čitelnosti, ale z dnešního hlediska má stále velmi blízko k hardwaru a programování v něm je náročné a zdlouhavé.
+Odvážné osoby si mohou rozkliknout [Hello World v assembleru](https://www.itnetwork.cz/assembler/zaklady/assembler-prvni-program-hello-world).
+
+Postupem času docházelo jak k vývoji ve filozofii a designu programovacích jazyků (paradigmata procedurální vs. objektově orientované vs. funkcionální), tak v míře, v níž tyto jazyky abstrahují nad samotným hardwarem.
+Nejníže si můžeme představit samotný strojový kód, nad nímž stojí Assembler, který je stále velmi blízko hardwaru, ale už nám umožňuje používat textové instrukce.
+Nad ním můžeme vidět jazyk C, který je stále poměrně blízko hardwaru, ale už nám umožňuje používat složitější datové struktury a abstrakce.
+Nad ním stojí jazyk C++ nebo C#, který přidává objektově orientované paradigma, a nad ním jazyk Java, který přidává další abstrakce a je navržen pro běh na virtuálním stroji (JVM), což zvyšuje jeho přenositelnost mezi různými platformami.
+Jazyk Python, který se objevil v roce 1991, je navržen pro jednoduchost a čitelnost, a je vysokoúrovňový jazyk, který abstrahuje od hardwaru a operačního systému.
+
+Jazyky s vyšší úrovní abstrakce nám umožňují psát kód rychleji a s menší pravděpodobností chyb, ale mohou být pomalejší než jazyky s nižší úrovní abstrakce, protože přidávají další vrstvy mezi námi a hardwarem.
+A také nám berou absolutní kontrolu nad tím, co se děje "pod kapotou", což může být nevýhodné pro některé typy aplikací, jako jsou operační systémy, hry nebo jiné výkonnostně velmi velmi náročné programy, či naopak programy na omezených zařízeních, jako jsou mikrokontroléry.
+
+### Kompilované vs. interpretované jazyky
+
+Pokud vše začalo strojovým kódem a pokračovalo kompilátory, tak další vývojovou fází jsou poté takzvané interpretované jazyky, které fungují trochu jinak.
+Interpretované jazyky fungují trochu jinak: namísto kompilátoru, který vytváří spustitelný programu, mají interpretované jazyky interpret - což je vlastně program, který čte běžný text a na základě jeho interpretace vykonává požadované úkony, operace.
+
+Interpret je sám o sobě běžný program, který je přeložený do strojového kódu stejně jako jiné aplikace (typicky pomocí kompilátoru).
+Jakmile však tento interpret máme nainstalovaný, můžeme v něm spouštět libovolné programy napsané v jeho jazyce, aniž bychom je museli pokaždé znovu kompilovat.
+
+Trochu paradoxní je, že interpret je program, který je často napsaný a zkompilovaný v kompilovaném jazyce.
+Python má základní interpret (zvaný CPython) napsaný v C, který je zkompilovaný do strojového kódu, a tento interpret nám umožňuje spouštět Pythoní kód.
+Vývojářstvo Pythonu kompiluje CPython na řadu operačních systémů a architektur, takže můžeme spouštět Pythoní kód na Windows, Mac i Linuxu bez úprav.
+
 ## Python - interpretovaný jazyk
 
-Python je interpretovaný programovací jazyk - primárně tak neslouží k tvorbě spustitelných programů (.exe apod.) jako v případě kompilovaných jazyků (C,C++,Go), ale ke "čtení" - interpretování kódu.
-Na počítači, na kterém chceme spouštět python skripty/programy, je tak potřeba mít nainstalovaný Python.
-Python čte skript řádek po řádku - definice funkcí (rozebereme později) musí předcházet jejich volání (použití).
+Python je interpretovaný programovací jazyk - primárně tak neslouží k tvorbě spustitelných programů (.exe apod.) skrze kompilátor - jako v případě kompilovaných jazyků (C, C++, Go, Arduino).
+Namísto toho Python interpret při spuštění program postupně čte kód řádek po řádku a vykonává jednotlivé instrukce.
 
-Výhody:
+Proto je na každém počítači, kde chceme Python program spustit, potřeba mít Python nainstalovaný — tedy právě tento interpret.
+Python obvykle vykonává kód řádek po řádku.
+To například znamená, že definice funkcí (které si vysvětlíme později) musí být uvedeny dříve, než je zavoláme, použijeme.
+(Kompilátory naproti tomu přečtou celý kód a teprve potom vytvářejí samotný překlad - překlad knihy vs. hraní z not na první dobrou.)
+
+Výhody interpretovaných jazyků:
 - stejný skript můžeme spustit na Windows, Mac i Linux a to bez úprav (v 99% případů)
 - instalace Pythonu je jednoduchá a tak spuštění na jiných počítačích či OS není složitá - portabilita kódu. Můžeme psát náš webserver na svém Windows notebooku a pak jej nasadit do produkce na velkém stabilním Linux serveru
 - skript hned běží, není třeba trávit čas kompilací
 - Python umožňuje interaktivní mód - můžeme ho tak využít k live-codingu apod. Spustíme buď přes IDLE - jde o první okno, které IDLE otevře, tak z příkazové řádky zavoláním příkazu Python bez dalších parametrů (jména souboru k spuštění): `python` případně `python3`. 
+- náš program můžeme klidně poslat SMSkou nebo dopisem, jde totiž o prostý text
 
 Nevýhody:
 - pokud chceme, aby někdo používal naše python programy, musí si nainstalovat Python (lze obejít použitím několik knihoven, které umožňují kompilace do spustitelných souborů, např. http://py2exe.org/)
-- některé chyby by kompilátor objevil při kompilaci, Python je však objeví až v okamžiku, kdy k nim dojde
+- některé chyby, co uděláme, by kompilátor objevil při kompilaci, Python je však objeví až v okamžiku, kdy k nim dojde - což může být v nevhodnou chvíli
 
 ## Obecně - co je program?
 
