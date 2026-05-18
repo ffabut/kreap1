@@ -23,7 +23,7 @@ Pozn.: nedostatečnou docházku můžete kompenzovat odevzdáním 3 opravených 
 Upravené soubory a vlastní program prosím zašlete v příloze emailu na adresu:
 - FAMU: `andreas.gajdosik@famu.cz` (případně v kopii na `andreas@gajdosik.org`), jako předmět emailu uveďte název předmětu, tedy `Základy programování`.
 
-Termínem pro zaslání je středa 23. 5. 2026.
+Termínem pro zaslání je středa 23. 6. 2026.
 V případě nejasností mi napište, rád zodpovím otázky, poradím, případně navedu k řešení.
 
 ## Úkol 1: Oprava kódu
