@@ -1,13 +1,30 @@
 # Zápočet
-K zápočtu v ZS 2024/2025 je potřeba splnit 2 úkoly:
+
+## FaVU
+K zápočtu v ZS 2025/2026 je potřeba splnit 2 úkoly:
 
 1. opravit 2 ze 3 python skriptů s rozbitým kódem ([broken-1.py](broken-1.py), [broken-2.py](broken-2.py) a [broken-3.py](broken-3.py))
 2. naprogramovat vlastní jednoduchý program, který bude alespoň nějak použitelný
 
-Upravené soubory a vlastní program prosím zašlete v příloze emailu na adresu `xvgajdosik@vut.cz`, jako předmět emailu uveďte zkratku předmětu, tedy `KREAP1`.
-Docházka na přednášky není potřebná - stačí pouze splnit úkoly.
-Termínem pro zaslání je středa 7. 2. 2025.
-V případě nejasností mi napište, rád zodpovím otázky, případně navedu k řešení.
+Upravené soubory a vlastní program prosím zašlete v příloze emailu na adresu:
+- `xvgajdosik@vut.cz` (případně v kopii na `andreas@gajdosik.org`), jako předmět emailu uveďte zkratku předmětu, tedy `KREAP1`.
+
+Termínem pro zaslání je středa 20. 2. 2026.
+V případě nejasností mi napište, rád zodpovím otázky, poradím, případně navedu k řešení.
+
+## FAMU
+K zápočtu v LS 2025/2026 je potřeba splnit docházku alespoň 50% a odevzdat 2 programovací úkoly:
+ 
+1. opravit 2 ze 3 python skriptů s rozbitým kódem ([broken-1.py](broken-1.py), [broken-2.py](broken-2.py) a [broken-3.py](broken-3.py)) - viz. [Úkol 1](#úkol-1-oprava-kódu).
+2. naprogramovat vlastní jednoduchý program, který bude alespoň nějak použitelný - viz. [Úkol 2](#úkol-2-vlastní-program).
+
+Pozn.: nedostatečnou docházku můžete kompenzovat odevzdáním 3 opravených skriptů a adekvátním zvětšením Vašeho programu v úkolu 2.
+
+Upravené soubory a vlastní program prosím zašlete v příloze emailu na adresu:
+- FAMU: `andreas.gajdosik@famu.cz` (případně v kopii na `andreas@gajdosik.org`), jako předmět emailu uveďte název předmětu, tedy `Základy programování`.
+
+Termínem pro zaslání je středa 23. 5. 2026.
+V případě nejasností mi napište, rád zodpovím otázky, poradím, případně navedu k řešení.
 
 ## Úkol 1: Oprava kódu
 Ve složce jsou nahrány 3 soubory obsahující rozbitý kód [broken-1.py](broken-1.py), [broken-2.py](broken-2.py) a [broken-3.py](broken-3.py).
